@@ -2,6 +2,7 @@ const express = require('express')
 const multer = require('multer')
 const sharp = require('sharp')
 const User = require('../models/user')
+const Sneaker = require('../models/sneaker')
 const auth = require('../middlewares/auth')
 const router = new express.Router()
 
@@ -145,6 +146,94 @@ router.get('/user/:id/profilePicture', async(req, res) => {
         res.status(400).send({ error: 'Something went wrong' })
     }
 })
+
+// endpoint for adding a sneaker to the cart
+router.post('/user/cart/add/:sneakerId', async (req, res) => {
+    try {
+      const { sneakerId } = req.params;
+      const { userId, quantity } = req.body; 
+  
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return res.status(404).send({ error: 'User not found' });
+      }
+  
+      const sneaker = await Sneaker.findById(sneakerId);
+  
+      if (!sneaker) {
+        return res.status(404).send({ error: 'Sneaker not found' });
+      }
+  
+      user.cart.push({ sneaker: sneaker._id, quantity: quantity });
+  
+      await user.save();
+  
+      res.send(user.cart); 
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: 'Server Error' });
+    }
+  });
+  
+// endpoint for updating the quantity
+router.patch('/user/cart/update/:sneakerId', async (req, res) => {
+    try {
+      const { sneakerId } = req.params;
+      const { userId, quantity } = req.body;
+  
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return res.status(404).send({ error: 'User not found' });
+      }
+  
+      const cartItem = user.cart.find(item => item.sneaker.toString() === sneakerId);
+  
+      if (!cartItem) {
+        return res.status(404).send({ error: 'Sneaker not found in cart' });
+      }
+  
+      if (quantity === 0) {
+        user.cart = user.cart.filter(item => item.sneaker.toString() !== sneakerId);
+      } else {
+        cartItem.quantity = quantity;
+      }
+  
+      await user.save();
+  
+      res.send(user.cart);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: 'Server Error' });
+    }
+  });
+  
+
+// endpoint for getting the sneakers in a user's cart
+router.get('/user/cart', async (req, res) => {
+    try {
+      const { userId } = req.body; 
+  
+      const user = await User.findById(userId).populate('cart.sneaker');
+  
+      if (!user) {
+        return res.status(404).send({ error: 'User not found' });
+      }
+  
+      const cartItems = user.cart.map(item => ({
+        sneaker: item.sneaker,
+        quantity: item.quantity,
+      }));
+  
+      res.send(cartItems); 
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: 'Server Error' });
+    }
+  });
+  
+  
 
 module.exports = router
 

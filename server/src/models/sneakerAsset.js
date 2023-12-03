@@ -5,7 +5,7 @@ const sneakerAssetSchema = new mongoose.Schema({
         type: String,
     },
     assetUrl: {
-        type: Buffer,
+        type: String,
     }
 })
 

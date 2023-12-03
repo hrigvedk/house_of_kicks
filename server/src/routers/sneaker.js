@@ -5,7 +5,6 @@ const Sneaker = require('../models/sneaker')
 const SneakerAsset = require('../models/sneakerAsset')
 const router = new express.Router()
 
-
 // endpoint to create a sneaker
 router.post('/sneaker/add', async (req, res) => {
     const sneaker = new Sneaker(req.body)
@@ -29,9 +28,26 @@ router.get('/sneakers', async (req, res) => {
 })
 
 // endpoint to update sneaker details 
-router.patch('/sneaker/update', async (req, res) => {
-
-})
+router.patch('/sneaker/update/:id', async (req, res) => {
+    try {
+      const { id } = req.params;
+      const updateFields = req.body; 
+  
+      const updatedSneaker = await Sneaker.findByIdAndUpdate(id, updateFields, {
+        new: true, 
+        runValidators: true, 
+      });
+  
+      if (!updatedSneaker) {
+        return res.status(404).send({ error: 'Sneaker not found' });
+      }
+  
+      res.send(updatedSneaker);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: 'Server Error' });
+    }
+  });
 
 // endpoint to delete a sneaker
 router.delete('/sneaker/delete/:id', async (req, res) => {

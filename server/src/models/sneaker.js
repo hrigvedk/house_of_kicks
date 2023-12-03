@@ -42,6 +42,10 @@ const sneakerSchema = new mongoose.Schema({
     description: {
         type: String,
         required: true
+    },
+    ankleType: {
+        type: String,
+        required: true
     }
 }, {
     timestamps: true
