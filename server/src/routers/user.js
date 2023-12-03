@@ -5,9 +5,6 @@ const User = require('../models/user')
 const auth = require('../middlewares/auth')
 const router = new express.Router()
 
-router.get('/user', async (req, res) =>  {
-    res.send("YOOO")
-})
 // endpoint to create a user (register)
 router.post('/user/signup', async (req, res) => {
     const user = new User(req.body)
@@ -28,7 +25,7 @@ router.post('/user/login', async (req, res) => {
         const token = await user.generateAuthToken()
         res.send({ user, token })
     } catch(e) {
-        res.status(400).send()
+        res.status(400).send({ error: 'Something went wrong' })
     }
 })
 
@@ -42,7 +39,7 @@ router.post('/user/logout', auth, async (req, res) =>  {
 
         res.send()
     } catch(e) {
-        res.status(500).send()
+        res.status(500).send({ error: 'Server Error' })
     }
 })
 
@@ -59,14 +56,14 @@ router.get('/users', async (req, res) => {
         const users = await User.find({})
         res.send(users)
     } catch(e) {
-        res.status(500).send()
+        res.status(500).send({ error: 'Server Error' })
     }
 })
 
 // endpoint to update user details
 router.patch('/user/me', auth, async (req, res) => {
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['firstName', 'lastName', 'password', 'phone', 'profilePicture']
+    const allowedUpdates = ['firstName', 'lastName', 'email', 'password', 'phone', 'profilePicture']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
 
     if (!isValidOperation) {
@@ -100,7 +97,7 @@ router.delete('/user/me', auth,async (req, res) => {
 
         res.send(req.user)
     }catch(e) {
-        res.status(500).send()
+        res.status(500).send({ error: 'Server Error' })
     }
 })
 
@@ -145,7 +142,7 @@ router.get('/user/:id/profilePicture', async(req, res) => {
         res.set('Content-Type', 'image/png')
         res.send(user.profilePicture)
     } catch(e) {
-        res.status(400).send()
+        res.status(400).send({ error: 'Something went wrong' })
     }
 })
 

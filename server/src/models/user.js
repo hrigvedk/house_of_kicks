@@ -7,7 +7,7 @@ const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: true,
-        trime: true,
+        trim: true,
         validate(value) {
             if(!validator.isAlpha(value)) {
                 throw new Error('First Name is Invalid')
