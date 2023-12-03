@@ -2,6 +2,7 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const Sneaker = require('./sneaker')
 
 const userSchema = new mongoose.Schema({
     firstName: {
@@ -61,7 +62,18 @@ const userSchema = new mongoose.Schema({
     ], 
     profilePicture: {
         type: Buffer
-    }
+    },
+    cart: [
+        {
+            sneaker: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Sneaker',
+            },
+            quantity: {
+                type: Number,
+            }
+        }
+    ]
 
 }, {
     timestamps: true
