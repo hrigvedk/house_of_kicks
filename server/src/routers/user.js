@@ -1,13 +1,10 @@
 const express = require('express')
 const multer = require('multer')
-const sharp = require('sharp')
 const User = require('../models/user')
+const Sneaker = require('../models/sneaker')
 const auth = require('../middlewares/auth')
 const router = new express.Router()
 
-router.get('/user', async (req, res) =>  {
-    res.send("YOOO")
-})
 // endpoint to create a user (register)
 router.post('/user/signup', async (req, res) => {
     const user = new User(req.body)
@@ -28,7 +25,7 @@ router.post('/user/login', async (req, res) => {
         const token = await user.generateAuthToken()
         res.send({ user, token })
     } catch(e) {
-        res.status(400).send()
+        res.status(400).send({ error: 'Something went wrong' })
     }
 })
 
@@ -42,7 +39,7 @@ router.post('/user/logout', auth, async (req, res) =>  {
 
         res.send()
     } catch(e) {
-        res.status(500).send()
+        res.status(500).send({ error: 'Server Error' })
     }
 })
 
@@ -59,14 +56,14 @@ router.get('/users', async (req, res) => {
         const users = await User.find({})
         res.send(users)
     } catch(e) {
-        res.status(500).send()
+        res.status(500).send({ error: 'Server Error' })
     }
 })
 
 // endpoint to update user details
 router.patch('/user/me', auth, async (req, res) => {
     const updates = Object.keys(req.body)
-    const allowedUpdates = ['firstName', 'lastName', 'password', 'phone', 'profilePicture']
+    const allowedUpdates = ['firstName', 'lastName', 'email', 'password', 'phone', 'profilePicture']
     const isValidOperation = updates.every((update) => allowedUpdates.includes(update))
 
     if (!isValidOperation) {
@@ -100,7 +97,7 @@ router.delete('/user/me', auth,async (req, res) => {
 
         res.send(req.user)
     }catch(e) {
-        res.status(500).send()
+        res.status(500).send({ error: 'Server Error' })
     }
 })
 
@@ -117,14 +114,14 @@ const upload = multer({
     }
 })
 
-router.post('/user/me/profilePicture', auth, upload.single('profilePicture'), async (req, res) => {
-    const buffer = await sharp(req.file.buffer).resize({height: 250, width: 250}).png().toBuffer()
-    req.user.profilePicture = buffer
-    await req.user.save()
-    res.send()
-}, (error, req, res, next) => {
-    res.status(400).send({error: error.message})
-})
+// router.post('/user/me/profilePicture', auth, upload.single('profilePicture'), async (req, res) => {
+//     const buffer = await sharp(req.file.buffer).resize({height: 250, width: 250}).png().toBuffer()
+//     req.user.profilePicture = buffer
+//     await req.user.save()
+//     res.send()
+// }, (error, req, res, next) => {
+//     res.status(400).send({error: error.message})
+// })
 
 // endpoint for deleting profile picture 
 router.delete('/user/me/profilePicture', auth, async(req, res) => {
@@ -145,9 +142,93 @@ router.get('/user/:id/profilePicture', async(req, res) => {
         res.set('Content-Type', 'image/png')
         res.send(user.profilePicture)
     } catch(e) {
-        res.status(400).send()
+        res.status(400).send({ error: 'Something went wrong' })
     }
 })
+
+// endpoint for adding a sneaker to the cart
+router.post('/user/cart/add/:sneakerId', async (req, res) => {
+    try {
+      const { sneakerId } = req.params;
+      const { userId } = req.body; 
+  
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return res.status(404).send({ error: 'User not found' });
+      }
+  
+      const sneaker = await Sneaker.findById(sneakerId);
+  
+      if (!sneaker) {
+        return res.status(404).send({ error: 'Sneaker not found' });
+      }
+  
+      user.cart.push({ sneaker: sneaker._id, quantity: quantity });
+  
+      await user.save();
+  
+      res.send(user.cart); 
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: 'Server Error' });
+    }
+  });
+  
+// endpoint for deleting the sneaker from the cart
+router.delete('/user/cart/remove/:sneakerId', async (req, res) => {
+    try {
+      const { sneakerId } = req.params;
+      const { userId } = req.body;
+  
+      const user = await User.findById(userId);
+  
+      if (!user) {
+        return res.status(404).send({ error: 'User not found' });
+      }
+  
+      const initialCartLength = user.cart.length;
+  
+      user.cart = user.cart.filter(item => item.sneaker.toString() !== sneakerId);
+  
+      if (initialCartLength === user.cart.length) {
+        return res.status(404).send({ error: 'Sneaker not found in cart' });
+      }
+  
+      await user.save();
+  
+      res.send(user.cart);
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: 'Server Error' });
+    }
+  });
+  
+
+// endpoint for getting the sneakers in a user's cart
+router.get('/user/cart', async (req, res) => {
+    try {
+      const { userId } = req.body; 
+  
+      const user = await User.findById(userId).populate('cart.sneaker');
+  
+      if (!user) {
+        return res.status(404).send({ error: 'User not found' });
+      }
+  
+      const cartItems = user.cart.map(item => ({
+        sneaker: item.sneaker,
+        quantity: item.quantity,
+      }));
+  
+      res.send(cartItems); 
+    } catch (error) {
+      console.error(error);
+      res.status(500).send({ error: 'Server Error' });
+    }
+  });
+  
+  
 
 module.exports = router
 

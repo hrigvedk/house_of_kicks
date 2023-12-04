@@ -2,12 +2,13 @@ const mongoose = require('mongoose')
 const validator = require('validator')
 const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
+const Sneaker = require('./sneaker')
 
 const userSchema = new mongoose.Schema({
     firstName: {
         type: String,
         required: true,
-        trime: true,
+        trim: true,
         validate(value) {
             if(!validator.isAlpha(value)) {
                 throw new Error('First Name is Invalid')
@@ -61,7 +62,15 @@ const userSchema = new mongoose.Schema({
     ], 
     profilePicture: {
         type: Buffer
-    }
+    },
+    cart: [
+        {
+            sneaker: {
+                type: mongoose.Schema.Types.ObjectId,
+                ref: 'Sneaker',
+            },
+        }
+    ]
 
 }, {
     timestamps: true
