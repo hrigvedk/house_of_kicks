@@ -1,8 +1,9 @@
 
 import React, { useState } from 'react';
-// import { login } from '../../api/api';
+import { login } from '../../api/api';
 import './LoginStyles/loginStyles.css';
 import routes from '../../Routes';
+import '../../Styles/common.css';
 
 const Login = () => {
   const [credentials, setCredentials] = useState({
@@ -23,16 +24,12 @@ const Login = () => {
 
     try {
       setLoading(true); // Set loading to true on form submission
-      // Simulate API call with timeout
-      setTimeout(() => {
-        // For demonstration, redirect to a page after 2 seconds
-        window.location.href = routes.base;
-      }, 2000);
-      // Replace this timeout with your actual API login call
-      // const response = await login(credentials);
-      // console.log('Login successful!', response);
+      const response = await login(credentials,5000);
+      console.log('Login successful!', response);
+      window.location.href = routes.base;
     } catch (error) {
       setError(error.message);
+      console.log(error.message)
     } finally {
       setLoading(false); // Set loading to false after API call completion
     }
@@ -74,13 +71,12 @@ const Login = () => {
               />
             </div>
             <div className="mb-3">
-              <button type="submit" className="btn btn-primary w-100 mt-3 position-relative">
-                <span className={loading ? 'visually-hidden' : ''}>Login</span>
-                {loading && (
-                  <div className="spinner-border text-light position-absolute top-50 start-50 translate-middle" role="status">
-                    <span className="visually-hidden">Loading...</span>
-                  </div>
-                )}
+
+            <button type="submit" className=" login-btn-colorbtn btn-primary w-100 mt-3 " disabled={loading}>
+                {loading ? (
+                  <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
+                ) : null}
+                {loading ? 'Logging In...' : 'Log In'}
               </button>
             </div>
           </form>

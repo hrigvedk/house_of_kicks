@@ -2,21 +2,14 @@ import axios from 'axios';
 
 const API_BASE_URL = 'http://localhost:8000/'; // Replace this with your actual backend base URL
 
-const api = axios.create({
-  baseURL: API_BASE_URL,
-});
-
-const signUp = async (userData) => {
+export const signUp = async (formData) => {
   try {
-    const response = await api.post('user/signup', userData);
-    console.log(response);
+    const response = await axios.post(`${API_BASE_URL}user/signup`, formData);
     return response.data;
   } catch (error) {
-    throw error.response.data;
+    throw error.response ? error.response.data : 'Network Error. Please try again later.';
   }
 };
-
-export { signUp };
 
 // api.js - Define login function in this file to handle login API call
 export const login = async (credentials) => {

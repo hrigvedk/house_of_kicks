@@ -1,10 +1,8 @@
 import React, { useState } from 'react';
 import { Tab, Tabs, Card } from 'react-bootstrap';
 import { FaShoePrints } from 'react-icons/fa';
-import SignUp from '../SignUp/SignUp'; // Import your SignUp component
-import Login from '../Login/Login'; // Import your Login component
-import routes from '../../Routes';
-// import './YourComponentStyles.css'; // Import your custom CSS for styling
+import SignUp from '../SignUp/SignUp'; 
+import Login from '../Login/Login'; 
 import "./LoginSignUpCardStyles/loginSignUpCardStyles.css";
 
 const LoginSignUpCard = () => {
@@ -17,11 +15,11 @@ const LoginSignUpCard = () => {
   return (
     <>
 
-      <div className="text-center mt-3">
-        <h2>
+      <div className="text-center mt-5">
+        <h1 className='mb-4'>
           <FaShoePrints className="mr-2" />
           House of Kicks
-        </h2>
+        </h1>
       </div>
     <div className="auth-container">
       <Card className="auth-card">
