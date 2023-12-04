@@ -1,6 +1,5 @@
 const express = require('express')
 const multer = require('multer')
-const sharp = require('sharp')
 const Sneaker = require('../models/sneaker')
 const SneakerAsset = require('../models/sneakerAsset')
 const router = new express.Router()

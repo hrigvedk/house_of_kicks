@@ -1,6 +1,5 @@
 const express = require('express')
 const multer = require('multer')
-// const sharp = require('sharp')
 const User = require('../models/user')
 const Sneaker = require('../models/sneaker')
 const auth = require('../middlewares/auth')
