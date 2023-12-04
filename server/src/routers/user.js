@@ -1,6 +1,6 @@
 const express = require('express')
 const multer = require('multer')
-const sharp = require('sharp')
+// const sharp = require('sharp')
 const User = require('../models/user')
 const Sneaker = require('../models/sneaker')
 const auth = require('../middlewares/auth')
@@ -115,14 +115,14 @@ const upload = multer({
     }
 })
 
-router.post('/user/me/profilePicture', auth, upload.single('profilePicture'), async (req, res) => {
-    const buffer = await sharp(req.file.buffer).resize({height: 250, width: 250}).png().toBuffer()
-    req.user.profilePicture = buffer
-    await req.user.save()
-    res.send()
-}, (error, req, res, next) => {
-    res.status(400).send({error: error.message})
-})
+// router.post('/user/me/profilePicture', auth, upload.single('profilePicture'), async (req, res) => {
+//     const buffer = await sharp(req.file.buffer).resize({height: 250, width: 250}).png().toBuffer()
+//     req.user.profilePicture = buffer
+//     await req.user.save()
+//     res.send()
+// }, (error, req, res, next) => {
+//     res.status(400).send({error: error.message})
+// })
 
 // endpoint for deleting profile picture 
 router.delete('/user/me/profilePicture', auth, async(req, res) => {
