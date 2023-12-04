@@ -151,7 +151,7 @@ router.get('/user/:id/profilePicture', async(req, res) => {
 router.post('/user/cart/add/:sneakerId', async (req, res) => {
     try {
       const { sneakerId } = req.params;
-      const { userId, quantity } = req.body; 
+      const { userId } = req.body; 
   
       const user = await User.findById(userId);
   
@@ -176,11 +176,11 @@ router.post('/user/cart/add/:sneakerId', async (req, res) => {
     }
   });
   
-// endpoint for updating the quantity
-router.patch('/user/cart/update/:sneakerId', async (req, res) => {
+// endpoint for deleting the sneaker from the cart
+router.delete('/user/cart/remove/:sneakerId', async (req, res) => {
     try {
       const { sneakerId } = req.params;
-      const { userId, quantity } = req.body;
+      const { userId } = req.body;
   
       const user = await User.findById(userId);
   
@@ -188,16 +188,12 @@ router.patch('/user/cart/update/:sneakerId', async (req, res) => {
         return res.status(404).send({ error: 'User not found' });
       }
   
-      const cartItem = user.cart.find(item => item.sneaker.toString() === sneakerId);
+      const initialCartLength = user.cart.length;
   
-      if (!cartItem) {
+      user.cart = user.cart.filter(item => item.sneaker.toString() !== sneakerId);
+  
+      if (initialCartLength === user.cart.length) {
         return res.status(404).send({ error: 'Sneaker not found in cart' });
-      }
-  
-      if (quantity === 0) {
-        user.cart = user.cart.filter(item => item.sneaker.toString() !== sneakerId);
-      } else {
-        cartItem.quantity = quantity;
       }
   
       await user.save();
