@@ -63,7 +63,25 @@ const handleSubmit = async (e) => {
     }
   };
 
+  const _id = localStorage.getItem('_id');
+  const email = localStorage.getItem('email');
+  const token = localStorage.getItem('token');
+  console.log(_id);
+  console.log(email)
+  console.log(token)
+
   return (
+    <>
+    {/* <h5>
+      {_id}
+    </h5>
+    <h5>
+      {email}
+    </h5>
+    <h5>
+      {token}
+    </h5> */}
+
     <div className="signup-background">
       <div className="signup-container d-flex justify-content-center align-items-center">
         <div className="card p-5">
@@ -157,6 +175,7 @@ const handleSubmit = async (e) => {
         </div>
       </div>
     </div>
+    </>
   );
 };
 

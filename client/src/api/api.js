@@ -31,3 +31,34 @@ export const login = async (credentials) => {
   }
 };
 
+export const logout = async () => {
+  try {
+    const token = localStorage.getItem('token');
+
+    console.log(token);
+
+    const response = await fetch('user/logout', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
+      // body: JSON.stringify(credentials),
+    });
+    if(response.status == 200) {
+
+      return true;
+    } else {
+
+      return false;
+    }
+    // if (!response.ok) {
+    //   const errorData = await response.json();
+    //   throw new Error(errorData.error || 'Logout failed');
+    // }
+    // return await response.json();
+  } catch (error) {
+    throw new Error(error.message || 'Logout failed');
+  }
+};
+
