@@ -25,11 +25,21 @@ const Login = () => {
     try {
       setLoading(true); // Set loading to true on form submission
       const response = await login(credentials,5000);
+      const { user, token } = response;
+
+      // Extract _id, email, and other user details from the user object
+      const { _id, email } = user;
+  
+      // Store _id, email, and token in the local storage
+      localStorage.setItem('_id', _id);
+      localStorage.setItem('email', email);
+      localStorage.setItem('token', token);
       console.log('Login successful!', response);
+      console.log(response.token);
       window.location.href = routes.base;
     } catch (error) {
       setError(error.message);
-      console.log(error.message)
+    //   console.log(error.message)
     } finally {
       setLoading(false); // Set loading to false after API call completion
     }

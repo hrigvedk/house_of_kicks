@@ -41,8 +41,18 @@ const handleSubmit = async (e) => {
 
       // Use the signUp function from the api.js file
       const response = await signUp(formData,5000);
+      const { user, token } = response;
+
+      // Extract _id, email, and other user details from the user object
+      const { _id, email } = user;
+  
+      // Store _id, email, and token in the local storage
+      localStorage.setItem('_id', _id);
+      localStorage.setItem('email', email);
+      localStorage.setItem('token', token);
 
       console.log('Signup successful!', response);
+
       window.location.href = routes.base;
     } catch (error) {
       console.log("here")
@@ -75,7 +85,7 @@ const handleSubmit = async (e) => {
               />
           
             </div>
-                       <div className="mb-3">
+          <div className="mb-3">
              <label htmlFor="lastName" className="form-label">Last Name <span className="required">*</span></label>
           <input
                 type="text"

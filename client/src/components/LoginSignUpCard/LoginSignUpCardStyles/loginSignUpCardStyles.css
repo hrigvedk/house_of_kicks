@@ -1,22 +1,3 @@
-/* YourComponentStyles.css */
-
-/* .auth-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  .auth-card {
-    width: max-content;
-    margin-top: 5%;
-    margin-bottom: 5%;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  }
-   */
-
 
    .auth-container {
     display: flex;
@@ -36,23 +17,7 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
  
-  /* .auth-card form label {
-    display: block;
-    margin-bottom: 5px;
-  }
-  
-  
-  .auth-card form input[type="text"],
-  .auth-card form input[type="email"],
-  .auth-card form input[type="password"],
-  .auth-card form input[type="tel"] {
-    width: calc(100% - 20px);
-    padding: 8px;
-    margin-bottom: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-  } */
-  
+
   /* Set button width and style */
   .auth-card form button {
     width: 100%;

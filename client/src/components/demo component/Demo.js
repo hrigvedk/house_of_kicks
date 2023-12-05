@@ -1,50 +1,22 @@
 import React from 'react'
 
 function Demo() {
+  const _id = localStorage.getItem('_id');
+const email = localStorage.getItem('email');
+const token = localStorage.getItem('token');
+
+// Use these values as needed in your redirected page
+// For example, logging them to the console
+
   return (
     <div>
       <h1>I'LL PUT LANDING PAGE HERE CHILL!</h1>
+      <h3>{_id}</h3>
+      <h3>{email}</h3>
+      <h3>{token}</h3>
     </div>
   )
 }
 
 export default Demo
-// import React, { useState } from 'react';
-// import { Tab, Tabs, Card } from 'react-bootstrap';
-// import SignUp from '../SignUp/SignUp'; // Import your SignUp component
-// import Login from '../Login/Login'; // Import your Login component
-// import routes from '../../Routes';
-// // import './YourComponentStyles.css'; // Import your custom CSS for styling
-
-// const Demo = () => {
-//   const [activeTab, setActiveTab] = useState('signup'); // State to manage active tab
-
-//   const handleTabChange = (tab) => {
-//     setActiveTab(tab);
-//   };
-
-//   return (
-//     <div className="auth-container">
-//       <Card className="auth-card">
-//         <Tabs
-//           id="authentication-tabs"
-//           activeKey={activeTab}
-//           onSelect={(tab) => handleTabChange(tab)}
-//           variant="pills"
-//           className="mb-3"
-//         >
-//           <Tab eventKey="signup" title="Sign Up">
-//            <SignUp/>
-//           </Tab>
-//           <Tab eventKey="login" title="Login">
-//           <Login/>
-          
-//           </Tab>
-//         </Tabs>
-//       </Card>
-//     </div>
-//   );
-// };
-
-// export default Demo;
 
