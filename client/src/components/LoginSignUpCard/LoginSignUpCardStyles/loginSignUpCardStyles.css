@@ -7,8 +7,8 @@
   }
   
   .auth-card {
-    width: 70%; /* Change the width as desired */
-    max-width: 600px; /* Set a maximum width if needed */
+    width: 70%; 
+    max-width: 600px; 
     margin-top: 15%;
     margin-bottom: 20%;
     padding: 20px;
@@ -17,8 +17,6 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   }
  
-
-  /* Set button width and style */
   .auth-card form button {
     width: 100%;
     padding: 10px;
@@ -28,4 +26,41 @@
     color: #fff;
     cursor: pointer;
   }
-  
+
+.tab-buttons {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+}
+
+.tab-buttons span {
+  cursor: pointer;
+}
+
+.active-tab {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.tab-toggles {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.tab-toggles span {
+  cursor: pointer;
+  margin: 0 10px;
+}
+
+.tab-toggles span:hover {
+  text-decoration: underline;
+}
+
+.active-tab {
+  font-weight: bold;
+}
+
+.active-tab:hover {
+  text-decoration: none;
+}
