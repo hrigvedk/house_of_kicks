@@ -1,7 +1,7 @@
-.signup-background {
+/* .signup-background {
     background-color: #6b3618;
     padding: 20px;
-  }
+  } */
   
   .signup-container {
     display: flex;
@@ -34,8 +34,8 @@
     border-radius: 4px;
   }
   
-  .required {
+  /* .required {
     color: red;
     margin-left: 1px;
-  }
+  } */
   
