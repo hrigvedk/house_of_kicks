@@ -36,7 +36,7 @@ const Login = () => {
       localStorage.setItem('token', token);
       console.log('Login successful!', response);
       console.log(response.token);
-      window.location.href = routes.base;
+      window.location.href = routes.LANDINGPAGE;
     } catch (error) {
       setError(error.message);
     //   console.log(error.message)
