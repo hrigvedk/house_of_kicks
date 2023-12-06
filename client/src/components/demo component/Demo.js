@@ -7,8 +7,7 @@ function Demo() {
 const email = localStorage.getItem('email');
 const token = localStorage.getItem('token');
 
-// Use these values as needed in your redirected page
-// For example, logging them to the console
+
 
 const handleSubmit = async (e)=>{
   const isLogOut = await logout();
@@ -18,7 +17,6 @@ const handleSubmit = async (e)=>{
     window.location.href = routes.AUTHENTICATION;
   }
 
-  // const response = await logout();
 
 }
   return (

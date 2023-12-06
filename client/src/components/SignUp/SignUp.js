@@ -1,6 +1,4 @@
-
 //जय श्री राम
-
 import React, { useState } from 'react';
 import { signUp } from '../../api/api';
 import routes from '../../Routes';
@@ -72,20 +70,10 @@ const handleSubmit = async (e) => {
 
   return (
     <>
-    {/* <h5>
-      {_id}
-    </h5>
-    <h5>
-      {email}
-    </h5>
-    <h5>
-      {token}
-    </h5> */}
-
-    <div className="signup-background">
+    {/* <div className="signup-background"> */}
       <div className="signup-container d-flex justify-content-center align-items-center">
-        <div className="card p-5">
-          <h2 className="text-center mb-4">Sign Up</h2>
+        {/* <div className="card p-5"> */}
+          {/* <h2 className="text-center mb-4">Sign Up</h2> */}
           {error && <p className="error-msg">{error}</p>}
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -173,8 +161,8 @@ const handleSubmit = async (e) => {
             </div>
           </form>
         </div>
-      </div>
-    </div>
+      {/* </div> */}
+    {/* </div> */}
     </>
   );
 };

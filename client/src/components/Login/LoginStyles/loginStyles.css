@@ -1,11 +1,11 @@
 /* Login.css - Custom styles for the login component */
 
 .login-background {
-    min-height: 100vh;
+    /* min-height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #6b3618; /* Change this to your desired background color */
+
   }
   
   .login-container {

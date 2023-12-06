@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_BASE_URL = 'http://localhost:8000/'; // Replace this with your actual backend base URL
+const API_BASE_URL = 'http://house-of-kicks-backend.us-east-1.elasticbeanstalk.com/'; // Replace this with your actual backend base URL
 
 export const signUp = async (formData) => {
   try {
@@ -14,7 +14,7 @@ export const signUp = async (formData) => {
 // api.js - Define login function in this file to handle login API call
 export const login = async (credentials) => {
   try {
-    const response = await fetch('/user/login', {
+    const response = await fetch(`${API_BASE_URL}user/login`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
@@ -37,7 +37,7 @@ export const logout = async () => {
 
     console.log(token);
 
-    const response = await fetch('user/logout', {
+    const response = await fetch(`${API_BASE_URL}user/logout`, {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

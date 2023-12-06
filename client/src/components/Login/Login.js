@@ -48,8 +48,8 @@ const Login = () => {
   return (
     <div className="login-background">
       <div className="login-container d-flex justify-content-center align-items-center">
-        <div className="card p-5">
-          <h2 className="text-center mb-4">Login</h2>
+        {/* <div className="card p-5"> */}
+          {/* <h2 className="text-center mb-4">Login</h2> */}
           {error && <p className="error-msg">{error}</p>}
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
@@ -92,7 +92,7 @@ const Login = () => {
           </form>
         </div>
       </div>
-    </div>
+    // </div>
   );
 };
 
