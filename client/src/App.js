@@ -5,6 +5,7 @@ import ProtectedRoute from './components/ProtectedRoute';
 import Demo from './components/demo component/Demo';
 import LoginSignUpCard from './components/LoginSignUpCard/LoginSignUpCard';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import '../src/index.css'
 
 const App = () => {
   return (
