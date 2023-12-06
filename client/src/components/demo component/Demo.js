@@ -14,7 +14,7 @@ const handleSubmit = async (e)=>{
   console.log( "isLogout",isLogOut)
   if(isLogOut === true){
       localStorage.clear()
-    window.location.href = routes.AUTHENTICATION;
+    window.location.href = routes.base;
   }
 
 
