@@ -8,8 +8,8 @@
   
   .auth-card {
     width: 70%; 
-    max-width: 600px; 
-    margin-top: 15%;
+    max-width: 400px; 
+    /* margin-top: 15%; */
     margin-bottom: 20%;
     padding: 20px;
     border: 1px solid #ccc;
@@ -45,7 +45,7 @@
 .tab-toggles {
   display: flex;
   justify-content: center;
-  margin-bottom: 20px;
+  margin-bottom: 50px;
 }
 
 .tab-toggles span {
