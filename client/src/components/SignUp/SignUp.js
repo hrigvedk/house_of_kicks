@@ -7,6 +7,8 @@ import '../../Styles/common.css'
 
 
 const Signup = () => {
+  const [showPassword, setShowPassword] = useState(false);
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
     firstName: '',
     lastName: '',
@@ -70,8 +72,8 @@ const handleSubmit = async (e) => {
 
   return (
     <>
-    {/* <div className="signup-background"> */}
-      <div className="signup-container d-flex justify-content-center align-items-center">
+    <div className="signup-background">
+      <div className="signup-container justify-content-center align-items-center">
         {/* <div className="card p-5"> */}
           {/* <h2 className="text-center mb-4">Sign Up</h2> */}
           {error && <p className="error-msg">{error}</p>}
@@ -91,7 +93,7 @@ const handleSubmit = async (e) => {
               />
           
             </div>
-          <div className="mb-3">
+          <div className="mb-2">
              <label htmlFor="lastName" className="form-label">Last Name <span className="required">*</span></label>
           <input
                 type="text"
@@ -117,27 +119,41 @@ const handleSubmit = async (e) => {
             </div>
             <div className="mb-3">
               <label htmlFor="password" className="form-label">Password <span className="required">*</span></label>
+              <div className='password-row'>
               <input
-                type="password"
-                className="form-control"
-                id="password"
-                name="password"
-                value={formData.password}
-                onChange={handleChange}
-                required
-              />
+                  type={showPassword ? 'text' : 'password'}
+                  className="form-control"
+                  id="password"
+                  name="password"
+                  value={formData.password}
+                  onChange={handleChange}
+                  required
+                />
+                 <i
+                  className={` far fas ${showPassword ? 'fa-eye' : 'fa-eye-slash'}`}
+                  id="togglePassword"
+                  onClick={() => setShowPassword(!showPassword)}
+                ></i>
+                </div>
             </div>
             <div className="mb-3">
               <label htmlFor="confirmPassword" className="form-label">Confirm Password <span className="required">*</span></label>
+              <div className='password-row'>
               <input
-                type="password"
-                className="form-control"
-                id="confirmPassword"
-                name="confirmPassword"
-                value={formData.confirmPassword}
-                onChange={handleChange}
-                required
-              />
+                  type={showConfirmPassword ? 'text' : 'password'}
+                  className="form-control"
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  value={formData.confirmPassword}
+                  onChange={handleChange}
+                  required
+                />
+                <i
+                  className={`far fas ${showConfirmPassword ? 'fa-eye' : 'fa-eye-slash'}`}
+                  id="toggleConfirmPassword"
+                  onClick={() => setShowConfirmPassword(!showConfirmPassword)}
+                ></i>
+              </div>
             </div>
             <div className="mb-3">
               <label htmlFor="phone" className="form-label">Phone Number <span className="required">*</span></label>
@@ -152,7 +168,7 @@ const handleSubmit = async (e) => {
               />
             </div>
             <div className="mb-3">
-              <button type="submit" className="btn btn-primary w-100 mt-3" disabled={loading}>
+              <button type="submit" className="btn btn-dark w-100 mt-3" disabled={loading}>
                 {loading ? (
                   <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                 ) : null}
@@ -161,7 +177,7 @@ const handleSubmit = async (e) => {
             </div>
           </form>
         </div>
-      {/* </div> */}
+      </div>
     {/* </div> */}
     </>
   );
