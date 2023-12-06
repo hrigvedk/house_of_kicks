@@ -1,15 +1,5 @@
 const mongoose = require('mongoose')
 
-const sneakerAssetSchema = new mongoose.Schema({
-    assetName: {
-        type: String,
-    },
-    assetUrl: {
-        type: Buffer,
-    }
-})
-
-
 const sneakerSchema = new mongoose.Schema({
     brand: {
         type: String,
@@ -31,9 +21,9 @@ const sneakerSchema = new mongoose.Schema({
         required: true,
     },
     assets: {
-        img: [sneakerAssetSchema],
-        vid: [sneakerAssetSchema],
-        mtl: [sneakerAssetSchema],
+        img: [String],
+        vid: [String],
+        mtl: [String],
     },
     rating: {
         type: Number,
@@ -46,6 +36,13 @@ const sneakerSchema = new mongoose.Schema({
     ankleType: {
         type: String,
         required: true
+    },
+    price: {
+        type: String,
+        required: true
+    },
+    priceHistory: {
+        type: [String]
     }
 }, {
     timestamps: true
