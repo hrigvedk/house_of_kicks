@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');
+
+.shoe-img-container {
+    padding: 4px;
+}
+
+.shoe-details {
+    padding-left: 30px;
+}
+
+.shoe-price {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 20px;
+}
+
+/* components/ProductDetails.css */
+
+/* components/ProductDetails.css */
+.shoe-sizes-container {
+    width: 80%; /* Adjust the width as needed */
+  }
+  
+  /* Add any additional styling for the shoe-size-box as needed */
+  .shoe-size-box {
+    border: 1px solid #ddd;
+    margin: 5px;
+    padding: 10px;
+    text-align: center;
+  }
+  
+  
+  .shoe-size-box:hover {
+    background-color: #f0f0f0; /* Change background color on hover */
+  }
+  
