@@ -4,20 +4,21 @@
   } */
   
   .signup-container {
-    display: flex;
     justify-content: center;
     align-items: center;
+    padding-left: 25px;
+    padding-right: 25px;
     /* height: 100vh; */
   }
   
-  .card {
+  /* .card {
     width: 450px;
     max-width: 90%;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     padding: 20px;
     background-color: skyblue;
-  }
+  } */
   
   /* Style for form labels */
   .form-label {
@@ -32,6 +33,10 @@
     margin-bottom: 10px;
     border: 1px solid #ccc;
     border-radius: 4px;
+  }
+
+  button {
+    background-color: black;
   }
   
   /* .required {

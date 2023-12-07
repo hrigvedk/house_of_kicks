@@ -11,6 +11,8 @@
   .login-container {
     width: 100%;
     max-width: 400px;
+    padding-left: 25px;
+    padding-right: 25px;
   }
   
   .card {
@@ -30,3 +32,17 @@
   .login-btn-color{
     background-color: #6b3618;
   }
+
+  .far {
+    margin-left: -30px; 
+    cursor: pointer;
+    padding-top: 10px;
+  }
+
+  .password-row {
+    display: flex;
+    flex-direction: row;
+  }
+
+
+  
