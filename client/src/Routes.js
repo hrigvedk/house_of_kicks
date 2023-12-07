@@ -1,8 +1,9 @@
 const routes = {
+    BASE_URL:'http://house-of-kicks-backend.us-east-1.elasticbeanstalk.com',
     base:'/',
     LANDINGPAGE:'/home',
-    BASE_URL:'http://house-of-kicks-backend.us-east-1.elasticbeanstalk.com'
-    // Add more routes if needed
+    PRODUCTS: '/products/*',
+    PRODUCT: '/product/:modelName'
   };
   
   export default routes;
