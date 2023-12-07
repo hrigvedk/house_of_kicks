@@ -28,13 +28,17 @@ const Login = () => {
       const response = await login(credentials, 5000);
       const { user, token } = response;
 
-      const { _id, email } = user;
+      const { _id, email, firstName, lastName, phone, password } = user;
 
       localStorage.setItem('_id', _id);
       localStorage.setItem('email', email);
       localStorage.setItem('token', token);
+      localStorage.setItem('firstName',firstName)
+      localStorage.setItem('lastName', lastName)
+      localStorage.setItem('phone',phone)
+      localStorage.setItem('password',password)
 
-      window.location.replace(routes.LANDINGPAGE);
+      window.location.replace(routes.USER_PROFILE);
     } catch (error) {
       setError(error.message);
     } finally {

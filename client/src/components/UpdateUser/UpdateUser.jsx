@@ -1,7 +1,11 @@
 import React, {useState, useEffect} from 'react'
 import { updateUserProfile } from '../../api/api';
 import routes from '../../Routes';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './UpdateUserStyles/updateUserStyles.css';
+
+
+
 
 function UpdateUser() {
 
@@ -11,6 +15,8 @@ function UpdateUser() {
     lastName: localStorage.getItem('lastName'),
     email: localStorage.getItem('email'),
     phone: localStorage.getItem('phone'),
+    password : localStorage.getItem('password')
+
 
   });
   const [loading,setLoading] = useState(false);
@@ -22,11 +28,15 @@ function UpdateUser() {
     lastName: '',
     phone: '',
     form: '',
+    password : ''
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     validateForm();
   }, [formData]);
+
 
   const handleInputChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
@@ -66,6 +76,22 @@ function UpdateUser() {
       setErrors((prevErrors) => ({ ...prevErrors, phone: '' }));
     }
 
+    if (formData.password.trim() === '') {
+      setErrors((prevErrors) => ({ ...prevErrors, password: 'Password cannot be empty' }));
+      isValid = false;
+    } else if (
+      !/(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}/.test(formData.password)
+    ) {
+      setErrors((prevErrors) => ({
+        ...prevErrors,
+        password:
+          'Password must contain at least 8 characters, 1 uppercase letter, 1 lowercase letter, 1 number, and 1 special character',
+      }));
+      isValid = false;
+    } else {
+      setErrors((prevErrors) => ({ ...prevErrors, password: '' }));
+    }
+
     return isValid;
   };
   const token = localStorage.getItem('token'); // Get the user's token from localStorage
@@ -84,6 +110,7 @@ function UpdateUser() {
         localStorage.setItem('firstName', data.firstName);
         localStorage.setItem('lastName', data.lastName);
         localStorage.setItem('phone', data.phone);
+        localStorage.setItem('password',data.password);
         window.location.href =  routes.USER_PROFILE;
       }
     } catch (error) {
@@ -97,22 +124,24 @@ function UpdateUser() {
       formData.firstName.trim() !== '' &&
       formData.lastName.trim() !== '' &&
       formData.phone.trim() !== '' &&
+      formData.password.trim() !== '' &&
       !errors.firstName &&
       !errors.lastName &&
-      !errors.phone
+      !errors.phone &&
+      !errors.password
     );
   };
 
-
+  console.log("is fprm valid" + isFormValid())
 
   return (
     <div>
-      <div className="header">
-        <h1>Welcome {formData.firstName}!</h1>
-      </div>
+      {/* <div className="header">
+        <h1>Welcome {localStorage.getItem('firstName')}!</h1>
+      </div> */}
 
-      <div className="container">
-        <div className="profile-card">
+      <div className="container-update">
+        <div className="profile-card-update">
           <form onSubmit={handleSubmit}>
             <h2 className="profile-title">Update Profile</h2>
 
@@ -154,6 +183,42 @@ function UpdateUser() {
                 disabled
               />
             </div>
+                {/* <div className="form-group">
+      <label htmlFor="email">
+        <b>Email</b>
+      </label>
+        <input
+          type="email"
+          className="form-control"
+          id="email"
+          name="email"
+          value={formData.email}
+          onChange={handleInputChange}
+          disabled
+        />
+      <div className="tooltip">
+        <span className="tooltiptext">Disabled field</span>
+      </div>
+    </div> */}
+
+
+
+            <div className="form-group">
+              <label htmlFor="password"> <b>Password</b></label>
+              <div className='password-row'>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                className="form-control"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                
+              />
+              <i className={`far fas ${showPassword ? 'fa-eye' : 'fa-eye-slash'}`} id="togglePassword" onClick={() => setShowPassword(!showPassword)}></i>
+              </div>
+              {errors.password && <span className="error-message">{errors.password}</span>}
+            </div>
 
             <div className="form-group">
               <label htmlFor="phone"><b>Phone</b> </label>
@@ -168,7 +233,7 @@ function UpdateUser() {
               {errors.phone && <span className="error-message">{errors.phone}</span>}
             </div>
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className=" btn-background-color " disabled={!isFormValid()}> 
             {loading ? (
                   <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                 ) : null}
@@ -177,10 +242,7 @@ function UpdateUser() {
 
             </button>
 
-          {/* <button type="submit" className="btn btn-primary"  disabled={!isFormValid}>
-              Update
-            
-            </button> */}
+
           </form>
         </div>
       </div>

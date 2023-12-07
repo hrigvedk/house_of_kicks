@@ -1,15 +1,25 @@
-/* Style the update button */
-.btn-primary {
-    background-color: #007bff;
-    border-color: #007bff;
-    color: #fff;
-    float: right; /* Align button to the right */
-  }
+
+.btn-background-color{
+  background-color: black;
+  float: right;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  color: white;
+}
   
-  .btn-primary:hover {
-    background-color: #0056b3;
-    border-color: #0056b3;
+  .btn-background-color:hover {
+    background-color: darkgray
+    /* border-color: #0056b3; */
   }
+
+  /* Disabled button */
+button[disabled] {
+  opacity: 0.3;;
+  cursor: not-allowed;
+  /* Additional styling as per your design */
+}
 
 .profile-title{
     margin-bottom: 20px;
@@ -19,7 +29,22 @@
     margin-top: 10px;
 }
 
+.container-update {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
+/* Style the profile card */
+.profile-card-update {
+  width: 80%;
+  max-width: 900px;
+  margin-top: 150px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: antiquewhite;
+}
 /* updateUserStyles.css */
 
 /* Error messages */
@@ -29,9 +54,56 @@
   margin-top: 4px;
 }
 
-/* Disabled button */
-button[disabled] {
-  opacity: 0.5;
-  cursor: not-allowed;
-  /* Additional styling as per your design */
+
+
+.far {
+  margin-left: -30px; 
+  cursor: pointer;
+  padding-top: 10px;
+  margin-top: 10px;
 }
+
+.password-row {
+  display: flex;
+  flex-direction: row;
+}
+
+/* Default styles */
+/* ... (existing styles) ... */
+
+/* Responsive styles using media queries */
+@media screen and (max-width: 768px) {
+  /* Adjust styles for tablet */
+  .container-update {
+    margin-top: 100px; /* Example: Adjust margin for better alignment on tablet */
+  }
+
+  .profile-card-update {
+    width: 90%; /* Example: Adjust card width for better fit on tablet */
+    margin-top: 100px; /* Example: Adjust margin for better alignment on tablet */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* Adjust styles for mobile */
+  .container-update {
+    margin-top: 50px; /* Example: Adjust margin for better alignment on mobile */
+  }
+
+  .profile-card-update {
+    width: 95%; /* Example: Adjust card width for better fit on mobile */
+    margin-top: 50px; /* Example: Adjust margin for better alignment on mobile */
+  }
+
+  .error-message {
+    font-size: 0.7rem; /* Example: Decrease font size for error messages on mobile */
+    margin-top: 2px; /* Example: Adjust margin for error messages on mobile */
+  }
+
+  .far {
+    margin-left: -15px; /* Example: Adjust margin for the eye icon on mobile */
+    padding-top: 5px; /* Example: Adjust padding for the eye icon on mobile */
+    margin-top: 5px; /* Example: Adjust margin top for the eye icon on mobile */
+  }
+}
+

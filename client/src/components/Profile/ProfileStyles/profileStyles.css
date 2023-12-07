@@ -1,40 +1,16 @@
 /* 
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
 
-  }
-  
+*{
+  font-size:large;
+}
 
-  .profile-card {
-    width: 80%;
-    max-width: 900px;
-    margin-top: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 20px;
-  }
-  
-
-  .header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
-  }
-   */
-
-   /* profileStyles.css */
-
-/* Center the profile card */
 .container {
     display: flex;
     justify-content: center;
     align-items: center;
   }
   
-  /* Style the profile card */
+  
   .profile-card {
     width: 80%;
     max-width: 900px;
@@ -45,15 +21,17 @@
     background-color: antiquewhite;
   }
   
-  /* Style the header */
+
   .header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+    
+    color: black;
+    text-align: left;
+    
+    margin-left: 400px;
+    margin-top: 100px;
   }
   
-  /* Profile title and edit button */
+
   .profile-header {
     display: flex;
     justify-content: space-between;
@@ -66,7 +44,7 @@
   }
   
   .edit-button {
-    background-color: #007bff;
+    background-color: black;
     color: #fff;
     border: none;
     padding: 8px 12px;
@@ -75,11 +53,99 @@
   }
   
   .edit-button:hover {
-    background-color: #0056b3;
+    background-color: darkgray;
   }
   
-  /* Profile details */
+
   .profile-details p {
     margin: 5px 0;
   }
-  
+   */
+
+   /* Default styles */
+
+* {
+  font-size: large;
+}
+
+/* Center the profile card */
+.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Style the profile card */
+.profile-card {
+  width: 80%;
+  max-width: 900px;
+  margin-top: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  background-color: antiquewhite;
+}
+
+/* Style the header */
+.header {
+  color: black;
+  text-align: center; /* Align center for mobile */
+  margin-top: 20px; /* Adjust margin for better alignment */
+}
+
+/* Profile title and edit button */
+.profile-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.profile-title {
+  margin: 0;
+}
+
+.edit-button {
+  background-color: black;
+  color: #fff;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.edit-button:hover {
+  background-color: darkgray;
+}
+
+/* Profile details */
+.profile-details p {
+  margin: 5px 0;
+}
+
+/* Responsive styles using media queries */
+@media screen and (max-width: 768px) {
+  /* Adjust styles for tablet */
+  .header {
+    margin-top: 50px; /* Example: Adjust margin for better alignment on tablet */
+  }
+
+  .container {
+    padding: 0 15px; /* Example: Add padding to container for better spacing on tablet */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  /* Adjust styles for mobile */
+  .header {
+    margin-top: 70px; /* Example: Adjust margin for better alignment on mobile */
+  }
+
+  .container {
+    padding: 0 10px; /* Example: Add more padding for better spacing on mobile */
+  }
+
+  .profile-card {
+    width: 95%; /* Example: Adjust card width for better fit on mobile */
+  }
+}
