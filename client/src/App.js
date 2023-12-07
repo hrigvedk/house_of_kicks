@@ -21,11 +21,11 @@ const App = () => {
         <Route path ={routes.USER_PROFILE} element = {<Profile/>}/>
         <Route path ={routes.UPDATE_USER} element = {<UpdateUser/>}/>
         <Route path={routes.LANDINGPAGE} element={<ProtectedRoute element={<Demo />} />} />
-        <Route path={routes.base} element={<ProtectedRoute element={<LoginSignUpCard />} route={'/home'} />} />
+        <Route path={routes.base} element={<ProtectedRoute element={<LoginSignUpCard />} route={'/auth'} />} />
         {/* <Route path={'/products/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/products'} />} />
          */}
 
-        <Route path={'/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/'} />} />
+        <Route path={'/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/product'} />} />
         <Route path={'*'} element={<ProtectedRoute element={<NotFound />} route={'*'} />} /> 
       </Routes>
     </Router>

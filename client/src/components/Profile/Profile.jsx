@@ -1,48 +1,20 @@
-// import React from 'react';
-// import './ProfileStyles/profileStyles.css'; // Import the external CSS file
-
-// function Profile() {
-//   const firstName = localStorage.getItem('firstName');
-//   const lastName = localStorage.getItem('lastName');
-//   const email = localStorage.getItem('email');
-//   const phone = localStorage.getItem('phone');
-
-//   return (
-//     <div>
-//       <div className="header">
-//         <h1>Welcome {firstName} !</h1>
-//       </div>
-
-//       <div className="container">
-//         <div className="profile-card">
-//           <h2>Profile Information</h2>
-//           <p><strong>First Name:</strong> {firstName}</p>
-//           <p><strong>Last Name:</strong> {lastName}</p>
-//           <p><strong>Email:</strong> {email}</p>
-//           <p><strong>Phone:</strong> {phone}</p>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// }
-
-// export default Profile;
 import React from 'react';
 import './ProfileStyles/profileStyles.css'; // Import the external CSS file
 import routes from '../../Routes';
-import bcrypt from 'bcryptjs';
+
 
 function Profile() {
   const firstName = localStorage.getItem('firstName');
   const lastName = localStorage.getItem('lastName');
   const email = localStorage.getItem('email');
   const phone = localStorage.getItem('phone');
-  // const password = bcrypt.hash(localStorage.getItem('password'),8) 
-  // console.log(password)
 
-  const handleEditClick = ()=>{
+
+  const handleEditClick = ()=> {
     window.location.href = routes.UPDATE_USER
   }
+
+
   return (
     <div>
       <div className="header">
