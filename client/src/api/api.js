@@ -52,13 +52,35 @@ export const logout = async () => {
 
       return false;
     }
-    // if (!response.ok) {
-    //   const errorData = await response.json();
-    //   throw new Error(errorData.error || 'Logout failed');
-    // }
-    // return await response.json();
+
   } catch (error) {
     throw new Error(error.message || 'Logout failed');
   }
 };
 
+export const updateUserProfile = async (formData, token) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}user/me`, {
+      method: 'PATCH',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        phone: formData.phone,
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error('Failed to update profile');
+    }
+
+    return data;
+  } catch (error) {
+    throw new Error(`Error updating profile: ${error.message}`);
+  }
+};
