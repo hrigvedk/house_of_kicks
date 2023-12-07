@@ -10,6 +10,7 @@ const Catalog = ({ shoesData }) => {
 
   return (
     <div>
+      
       {shoesData.reduce((rows, shoe, index) => {
         if (index % columnsPerRow === 0) {
           rows.push([]);

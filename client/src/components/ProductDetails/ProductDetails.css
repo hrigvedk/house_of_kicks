@@ -13,23 +13,39 @@
     font-size: 20px;
 }
 
-/* components/ProductDetails.css */
-
-/* components/ProductDetails.css */
 .shoe-sizes-container {
-    width: 80%; /* Adjust the width as needed */
+    width: 80%;
   }
   
-  /* Add any additional styling for the shoe-size-box as needed */
-  .shoe-size-box {
-    border: 1px solid #ddd;
+.shoe-size-box {
+    border: 1px solid #000000;
     margin: 5px;
     padding: 10px;
     text-align: center;
   }
   
+.shoe-size-box-container {
+    padding-left: 0px;
+  }
+
+.sold-out {
+    background-color: #efefef; 
+}
   
-  .shoe-size-box:hover {
-    background-color: #f0f0f0; /* Change background color on hover */
+.custom-buy-now {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 15px;
+    width: 72%;
+    background-color: #cf0a2c;
+    color: #ffffff;
+    text-align: center;
+    padding: 10px;
+    cursor: pointer;
+  }
+
+  .shoe-description {
+    width: 72%;
+    margin-top: 15px;
+    font-size: 20px;
   }
   

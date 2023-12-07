@@ -42,7 +42,7 @@ const ProductCatalog = () => {
 
   return (
     <div className="catalog-container container-fluid">
-      <Navigation onSearchChange={handleSearchChange} />
+      <Navigation onSearchChange={handleSearchChange}/>
       <Routes>
         <Route
           path="/"
