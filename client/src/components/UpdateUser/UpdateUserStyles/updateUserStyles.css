@@ -35,3 +35,14 @@ button[disabled] {
   cursor: not-allowed;
   /* Additional styling as per your design */
 }
+
+.far {
+  margin-left: -30px; 
+  cursor: pointer;
+  padding-top: 10px;
+}
+
+.password-row {
+  display: flex;
+  flex-direction: row;
+}

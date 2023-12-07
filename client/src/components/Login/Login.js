@@ -28,7 +28,7 @@ const Login = () => {
       const { user, token } = response;
 
       // Extract _id, email, and other user details from the user object
-      const { _id, email, firstName, lastName, phone } = user;
+      const { _id, email, firstName, lastName, phone, password } = user;
   
       // Store _id, email, and token in the local storage
       localStorage.setItem('_id', _id);
@@ -37,6 +37,7 @@ const Login = () => {
       localStorage.setItem('firstName', firstName);
       localStorage.setItem('lastName', lastName);
       localStorage.setItem('phone', phone);
+      localStorage.setItem('password',password)
       console.log('Login successful!', response);
       // console.log(response.token);
       window.location.href = routes.USER_PROFILE;

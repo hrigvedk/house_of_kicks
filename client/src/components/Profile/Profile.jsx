@@ -30,12 +30,15 @@
 import React from 'react';
 import './ProfileStyles/profileStyles.css'; // Import the external CSS file
 import routes from '../../Routes';
+import bcrypt from 'bcryptjs';
 
 function Profile() {
   const firstName = localStorage.getItem('firstName');
   const lastName = localStorage.getItem('lastName');
   const email = localStorage.getItem('email');
   const phone = localStorage.getItem('phone');
+  // const password = bcrypt.hash(localStorage.getItem('password'),8) 
+  // console.log(password)
 
   const handleEditClick = ()=>{
     window.location.href = routes.UPDATE_USER
@@ -45,7 +48,6 @@ function Profile() {
       <div className="header">
         <h1>Welcome {firstName}!</h1>
       </div>
-
       <div className="container">
         <div className="profile-card">
           <div className="profile-header">

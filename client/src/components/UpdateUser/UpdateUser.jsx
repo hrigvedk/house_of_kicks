@@ -1,7 +1,10 @@
 import React, {useState, useEffect} from 'react'
 import { updateUserProfile } from '../../api/api';
 import routes from '../../Routes';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './UpdateUserStyles/updateUserStyles.css';
+// import bcrypt from 'bcryptjs';
+
 
 function UpdateUser() {
 
@@ -11,6 +14,8 @@ function UpdateUser() {
     lastName: localStorage.getItem('lastName'),
     email: localStorage.getItem('email'),
     phone: localStorage.getItem('phone'),
+    password : localStorage.getItem('password')
+
 
   });
   const [loading,setLoading] = useState(false);
@@ -23,6 +28,8 @@ function UpdateUser() {
     phone: '',
     form: '',
   });
+
+  const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
     validateForm();
@@ -84,6 +91,7 @@ function UpdateUser() {
         localStorage.setItem('firstName', data.firstName);
         localStorage.setItem('lastName', data.lastName);
         localStorage.setItem('phone', data.phone);
+        localStorage.setItem('password',data.password);
         window.location.href =  routes.USER_PROFILE;
       }
     } catch (error) {
@@ -108,7 +116,7 @@ function UpdateUser() {
   return (
     <div>
       <div className="header">
-        <h1>Welcome {formData.firstName}!</h1>
+        <h1>Welcome {localStorage.getItem('firstName')}!</h1>
       </div>
 
       <div className="container">
@@ -156,6 +164,22 @@ function UpdateUser() {
             </div>
 
             <div className="form-group">
+              <label htmlFor="password"> <b>Password</b></label>
+              <div className='password-row'>
+              <input
+                type={showPassword ? 'text' : 'password'}
+                className="form-control"
+                id="password"
+                name="password"
+                value={formData.password}
+                onChange={handleInputChange}
+                
+              />
+              <i className={`far fas ${showPassword ? 'fa-eye' : 'fa-eye-slash'}`} id="togglePassword" onClick={() => setShowPassword(!showPassword)}></i>
+              </div>
+            </div>
+
+            <div className="form-group">
               <label htmlFor="phone"><b>Phone</b> </label>
               <input
                 type="text"
@@ -168,7 +192,7 @@ function UpdateUser() {
               {errors.phone && <span className="error-message">{errors.phone}</span>}
             </div>
 
-            <button type="submit" className="btn btn-primary">
+            <button type="submit" className="btn btn-primary" disabled={!isFormValid}> 
             {loading ? (
                   <span className="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>
                 ) : null}

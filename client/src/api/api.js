@@ -70,6 +70,7 @@ export const updateUserProfile = async (formData, token) => {
         firstName: formData.firstName,
         lastName: formData.lastName,
         phone: formData.phone,
+        password : formData.password
       }),
     });
 
