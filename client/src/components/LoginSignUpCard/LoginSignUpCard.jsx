@@ -6,7 +6,7 @@ import Login from '../Login/Login';
 import "./LoginSignUpCardStyles/loginSignUpCardStyles.css";
 
 const LoginSignUpCard = () => {
-  const [activeTab, setActiveTab] = useState('login'); // State to manage active tab
+  const [activeTab, setActiveTab] = useState('login'); 
 
   const handleTabChange = (tab) => {
     setActiveTab(tab);
@@ -18,10 +18,7 @@ const LoginSignUpCard = () => {
         <div className="auth-card">
           <div className="text-center mt-4">
             <div className='hok-icon'>
-              <img src='https://drive.google.com/uc?id=1iwZ1NNXsF5DHiATDA08SRDJjAT7ijTHn' height={80} width={80} />
-              <h1 className='mb-4'>
-                <i>House of Kicks</i>
-              </h1>
+              <img src='https://drive.google.com/uc?id=1qiDDnWjhOSoM7zwuM3Ag29oS83N9hu-D' height={80} width={80} />
             </div>
 
           </div>
