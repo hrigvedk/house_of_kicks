@@ -53,7 +53,7 @@ const handleSubmit = async (e) => {
 
       console.log('Signup successful!', response);
 
-      window.location.href = routes.base;
+      window.location.replace(routes.LANDINGPAGE);
     } catch (error) {
       console.log("here")
       setError(error.message);

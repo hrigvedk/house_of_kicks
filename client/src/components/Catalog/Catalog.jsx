@@ -26,6 +26,7 @@ const Catalog = ({ shoesData }) => {
                   <div className="card-body">
                     <h5 className="card-title">{shoe.brand}  {shoe.modelName}</h5>
                     <p className="card-text">{shoe.gender}</p>
+                    <p className="shoe-price">${shoe.price}</p>
                   </div>
                 </div>
               </Link>

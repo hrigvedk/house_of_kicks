@@ -12,8 +12,8 @@ const Login = () => {
   });
 
   const [error, setError] = useState('');
-  const [loading, setLoading] = useState(false); // State to handle loading
-  const [showPassword, setShowPassword] = useState(false); // State to handle password visibility
+  const [loading, setLoading] = useState(false); 
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -24,24 +24,21 @@ const Login = () => {
     e.preventDefault();
 
     try {
-      setLoading(true); // Set loading to true on form submission
+      setLoading(true); 
       const response = await login(credentials, 5000);
       const { user, token } = response;
 
-      // Extract _id, email, and other user details from the user object
       const { _id, email } = user;
 
-      // Store _id, email, and token in the local storage
       localStorage.setItem('_id', _id);
       localStorage.setItem('email', email);
       localStorage.setItem('token', token);
-      console.log('Login successful!', response);
-      console.log(response.token);
-      window.location.href = routes.LANDINGPAGE;
+
+      window.location.replace(routes.LANDINGPAGE);
     } catch (error) {
       setError(error.message);
     } finally {
-      setLoading(false); // Set loading to false after API call completion
+      setLoading(false); 
     }
   };
 
