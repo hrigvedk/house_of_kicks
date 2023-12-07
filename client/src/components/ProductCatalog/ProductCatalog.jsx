@@ -11,7 +11,7 @@ import Spinner from '../Spinner/Spinner'
 const ProductCatalog = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [shoesData, setShoesData] = useState([]);
-  const [loading, setLoading] = useState(true); // State for loading status
+  const [loading, setLoading] = useState(true); 
 
   const handleSearchChange = (event) => {
     setSearchTerm(event.target.value);
@@ -51,7 +51,7 @@ const ProductCatalog = () => {
         {filteredShoes.map((shoe) => (
           <Route
             key={shoe.modelName}
-            path={`/product/${encodeURIComponent(shoe.modelName)}`}
+            path={`/product/${shoe.modelName}`}
             element={<ProductDetails shoe={shoe} />}
           />
         ))}

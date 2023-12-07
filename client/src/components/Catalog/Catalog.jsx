@@ -24,7 +24,7 @@ const Catalog = ({ shoesData }) => {
                 <div className="card border-0">
                   <img src={shoe.assets.img[0]} className="card-img-top img-fluid" alt={`Card ${rowIndex * columnsPerRow + columnIndex + 1}`} />
                   <div className="card-body">
-                    <h5 className="card-title">{shoe.brand} {shoe.modelName}</h5>
+                    <h5 className="card-title">{shoe.brand}  {shoe.modelName}</h5>
                     <p className="card-text">{shoe.gender}</p>
                   </div>
                 </div>

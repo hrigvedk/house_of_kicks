@@ -9,7 +9,7 @@ const ProtectedRoute = ({ element, route }) => {
     if (token) {
       navigate({route}); 
     } else {
-      navigate('/'); 
+      navigate('/auth'); 
     }
   }, [navigate]);
 
