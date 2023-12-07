@@ -15,4 +15,19 @@
     font-family: 'Poppins', sans-serif;
     font-size: 15px;
 }
+
+.navbar {
+    background-color: #050d14;
+  }
+
+.navbar-nav .nav-link {
+    color: white !important;
+    font-size: 18px;
+  }
+  
+
+  .navbar-nav .nav-link svg {
+    fill: white; 
+    font-size: 24px;
+  }
   
