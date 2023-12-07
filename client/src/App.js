@@ -8,6 +8,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../src/index.css';
 import ProductCatlog from './components/ProductCatalog/ProductCatalog'
 import ProductDetails from './components/ProductDetails/ProductDetails';
+import NotFound from './components/NotFound/NotFound';
 
 const App = () => {
   return (
@@ -15,8 +16,11 @@ const App = () => {
       <Routes>
         <Route path={routes.LANDINGPAGE} element={<ProtectedRoute element={<Demo />} />} />
         <Route path={routes.base} element={<ProtectedRoute element={<LoginSignUpCard />} route={'/home'} />} />
-        <Route path={routes.PRODUCTS} element={<ProtectedRoute element={<ProductCatlog />} route={'/products'} />} />
-        <Route path={routes.PRODUCT} element={<ProtectedRoute element={<ProductDetails />} route={'/product/:modelName'} />} />
+        {/* <Route path={'/products/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/products'} />} />
+         */}
+
+        <Route path={'/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/'} />} />
+        <Route path={'*'} element={<ProtectedRoute element={<NotFound />} route={'*'} />} /> 
       </Routes>
     </Router>
   );
