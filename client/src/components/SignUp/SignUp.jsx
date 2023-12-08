@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { signUp } from '../../api/api';
 import routes from '../../Routes';
-import './SignUpStyles/signUpStyles.css'; // Import your custom CSS for Signup styling
+import './SignUpStyles/signUpStyles.css'; 
 import '../../Styles/common.css'
 
 
@@ -39,14 +39,12 @@ const handleSubmit = async (e) => {
 
       setLoading(true);
 
-      // Use the signUp function from the api.js file
       const response = await signUp(formData,5000);
       const { user, token } = response;
 
       // Extract _id, email, and other user details from the user object
       const { _id, email, firstName, lastName, phone, password } = user;
   
-      // Store _id, email, and token in the local storage
       localStorage.setItem('_id', _id);
       localStorage.setItem('email', email);
       localStorage.setItem('token', token);

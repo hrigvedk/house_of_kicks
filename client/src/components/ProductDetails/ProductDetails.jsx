@@ -1,16 +1,13 @@
-// components/ProductDetails.jsx
 import React from 'react';
 import './ProductDetails.css';
 import Rating from 'react-rating-stars-component';
 
 const ProductDetails = ({ shoe }) => {
-  // Use the shoe prop instead of shoesData array
   if (!shoe) {
     return <div>Shoe not found</div>;
   }
 
   const renderImages = () => {
-    // Start from the 1st element and show only 4 images
     return shoe.assets.img.slice(1, 5).map((image, index) => (
       <div key={index} className="col-md-6 shoe-img-container">
         <img src={image} alt={`${shoe.modelName} - ${index + 1}`} className="shoe-img img-fluid" />
@@ -21,23 +18,35 @@ const ProductDetails = ({ shoe }) => {
   const renderShoeSizes = () => {
     const shoeSizes = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14];
 
-    return (
-      <div className="row mt-3 shoe-sizes-container">
-        {shoeSizes.map((size, index) => {
-          const isAvailable = !shoe.availableSizes.includes(size);
-          console.log(isAvailable);
+    const isMobileView = window.innerWidth < 768;
 
-          return (
-            <div key={index} className={`col-md-4 shoe-size-box-container`}>
-              <div className={`shoe-size-box ${isAvailable ? 'sold-out' : ''}`}>
-                {size}
+    if (isMobileView) {
+      return (
+        <div className="mt-3">
+          <label htmlFor="shoe-sizes" className="form-label">Select Size:</label>
+          <select id="shoe-sizes" className="form-select">
+            {shoeSizes.map((size, index) => (
+              <option key={index} value={size}>{size}</option>
+            ))}
+          </select>
+        </div>
+      );
+    } else {
+      return (
+        <div className="row mt-3 shoe-sizes-container">
+          {shoeSizes.map((size, index) => {
+            const isAvailable = !shoe.availableSizes.includes(size);
+            return (
+              <div key={index} className={`col-md-4 shoe-size-box-container`}>
+                <div className={`shoe-size-box ${isAvailable ? 'sold-out' : ''}`}>
+                  {size}
+                </div>
               </div>
-            </div>
-          );
-        })}
-      </div>
-
-    );
+            );
+          })}
+        </div>
+      );
+    }
   };
 
   return (

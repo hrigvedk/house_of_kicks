@@ -1,6 +1,7 @@
 import React from 'react';
 import './ProfileStyles/profileStyles.css'; // Import the external CSS file
 import routes from '../../Routes';
+import Navigation from '../Navigation/Navigation';
 
 
 function Profile() {
@@ -17,14 +18,15 @@ function Profile() {
 
   return (
     <div>
+      <Navigation />
       <div className="header">
-        <h1>Welcome {firstName}!</h1>
+        <h2 className='welcome'>Welcome <span className='name-header'>{firstName}</span>!</h2>
       </div>
       <div className="container">
         <div className="profile-card">
           <div className="profile-header">
             <h2 className="profile-title">Profile Information</h2>
-            <button className="edit-button"  onClick={handleEditClick}>Update Profile</button>
+            <button className="edit-button"  onClick={handleEditClick}>Edit</button>
           </div>
           <div className="profile-details">
             <p><strong>First Name:</strong> {firstName} </p>
