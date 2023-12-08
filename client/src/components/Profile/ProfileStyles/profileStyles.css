@@ -89,8 +89,9 @@
 /* Style the header */
 .header {
   color: black;
-  text-align: center; /* Align center for mobile */
+  text-align: left; /* Align center for mobile */
   margin-top: 20px; /* Adjust margin for better alignment */
+  margin-left: 400px;
 }
 
 /* Profile title and edit button */

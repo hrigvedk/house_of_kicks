@@ -38,7 +38,7 @@ const Login = () => {
       localStorage.setItem('phone',phone)
       localStorage.setItem('password',password)
 
-      window.location.replace(routes.USER_PROFILE);
+      window.location.replace(routes.LANDINGPAGE);
     } catch (error) {
       setError(error.message);
     } finally {
@@ -49,7 +49,7 @@ const Login = () => {
   return (
     <div className="login-background">
       <div className="login-container justify-content-center align-items-center">
-        {error && <p className="error-msg">{error}</p>}
+        {/* {error && <p className="error-msg">{error}</p>} */}
         <form onSubmit={handleSubmit}>
           <div className="mb-3">
             <label htmlFor="email" className="form-label">
