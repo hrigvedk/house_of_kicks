@@ -8,11 +8,12 @@ const Cart = () => {
     const [totalPrice, setTotalPrice] = useState(0);
     const [isDeleting, setIsDeleting] = useState(false);
     const userId = localStorage.getItem('_id');
+    console.log(userId);
 
     useEffect(() => {
         const fetchCartData = async () => {
             try {
-                const response = await fetch('http://house-of-kicks-backend.us-east-1.elasticbeanstalk.com/user/cart/' + userId, {
+                const response = await fetch('http://house-of-kicks-backend.us-east-1.elasticbeanstalk.com/user/' + userId + '/cart/', {
                     method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
