@@ -42,6 +42,7 @@ const handleSubmit = async (e) => {
       const response = await signUp(formData,5000);
       const { user, token } = response;
 
+      // Extract _id, email, and other user details from the user object
       const { _id, email, firstName, lastName, phone, password } = user;
   
       localStorage.setItem('_id', _id);
@@ -67,6 +68,7 @@ const handleSubmit = async (e) => {
   const _id = localStorage.getItem('_id');
   const email = localStorage.getItem('email');
   const token = localStorage.getItem('token');
+  
   console.log(_id);
   console.log(email)
   console.log(token)
@@ -77,7 +79,7 @@ const handleSubmit = async (e) => {
       <div className="signup-container justify-content-center align-items-center">
         {/* <div className="card p-5"> */}
           {/* <h2 className="text-center mb-4">Sign Up</h2> */}
-          {error && <p className="error-msg">{error}</p>}
+          {/* {error && <p className="error-msg">{error}</p>} */}
           <form onSubmit={handleSubmit}>
             <div className="mb-3">
               <label htmlFor="firstName" className="form-label">
