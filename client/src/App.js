@@ -22,6 +22,7 @@ const App = () => {
       <Routes>
         <Route path ={routes.USER_PROFILE} element = {<Profile/>}/>
         <Route path ={routes.UPDATE_USER} element = {<UpdateUser/>}/>
+        <Route path ={routes.demo} element = {<Demo/>}/>
         <Route path={routes.LANDINGPAGE} element={<ProtectedRoute element={<LandingPage />} />} />
         <Route path={routes.base} element={<ProtectedRoute element={<LoginSignUpCard />} route={'/auth'} />} />
         <Route path={'/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/product'} />} />
