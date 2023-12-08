@@ -2,7 +2,7 @@
   /* background-image: url('https://sneakernews.com/wp-content/uploads/2011/12/2011-top-30-sneakers-summary.jpg'); */
   background-image: url('https://drive.google.com/uc?id=1fgQ2ELuPjxbDuLqjt72vqd7GRlGnqyGT');
   background-color: rgba(0, 0, 0, 0.5);
-  height: 120vh; 
+  height: 150vh; 
   background-repeat: no-repeat;
   background-size: cover;
 }
@@ -18,10 +18,7 @@
     width: 70%; 
     max-width: 400px;
     background-color: #ffffff; 
-    /* margin-top: 15%; */
-    margin-bottom: 10%;
-    margin-top: 5%;
-    /* padding: 10px; */
+    margin-top: 1%;
     border: 1px solid #ccc;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
