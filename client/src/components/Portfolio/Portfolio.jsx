@@ -1,5 +1,6 @@
 import React from 'react';
 import './Portfolio.css';
+import Navigation from '../Navigation/Navigation';
 
 const portfolio = [
   {
@@ -99,6 +100,7 @@ const calculateProfitLossColor = (purchasePrice, marketPrice) => {
 
   return (
 <>
+<Navigation />
     <div className='d-flex justify-content-center'>
       <div className='row portfolio-container'>
         <h4>Your purchases :</h4>
