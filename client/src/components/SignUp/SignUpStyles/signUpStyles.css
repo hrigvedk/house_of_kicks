@@ -24,3 +24,13 @@
     background-color: black;
   }
   
+  /* .required {
+    color: red;
+    margin-left: 1px;
+  } */
+  
+  button[disabled] {
+    opacity: 0.3;;
+    cursor: not-allowed;
+    /* Additional styling as per your design */
+  }

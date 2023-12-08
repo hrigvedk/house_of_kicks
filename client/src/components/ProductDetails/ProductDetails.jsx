@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './ProductDetails.css';
 import Rating from 'react-rating-stars-component';
+import PriceHistoryGraph from '../PriceHistoryComponent/PriceHistoryGraph';
 
 const ProductDetails = ({ shoe }) => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
@@ -8,6 +9,17 @@ const ProductDetails = ({ shoe }) => {
 
   const shoeId = shoe._id;
   const userId = localStorage.getItem('_id');
+  const data = [
+    { date: '2023-12-07', price: 180 },
+    { date: '2023-12-09', price: 200 },
+    { date: '2023-12-11', price: 170 },
+    { date: '2023-12-13', price: 180 },
+    { date: '2023-12-15', price: 200 },
+    { date: '2023-12-17', price: 150 },
+    { date: '2023-12-19', price: 90 },
+    { date: '2023-12-21', price: 250 },
+    // Add more data as needed
+  ];
 
   if (!shoe) {
     return <div>Shoe not found</div>;
@@ -102,6 +114,10 @@ const ProductDetails = ({ shoe }) => {
           </div>
         </div>
         <p className="shoe-description">{shoe.description}</p>
+ 
+
+        <PriceHistoryGraph  data = {data}/>
+
         {isAddedToCart && (
           <div className="popup">
             <div className="popup-message">
