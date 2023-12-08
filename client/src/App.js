@@ -22,8 +22,8 @@ const App = () => {
         <Route path ={routes.UPDATE_USER} element = {<UpdateUser/>}/>
         <Route path={routes.LANDINGPAGE} element={<ProtectedRoute element={<LandingPage />} />} />
         <Route path={routes.base} element={<ProtectedRoute element={<LoginSignUpCard />} route={'/auth'} />} />
-        {/* <Route path={'/products/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/products'} />} />
-         */}
+        {/* <Route path={'/products/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/products'} />} /> */}
+        
 
         <Route path={'/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/product'} />} />
         <Route path={'*'} element={<ProtectedRoute element={<NotFound />} route={'*'} />} /> 

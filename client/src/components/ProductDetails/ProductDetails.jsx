@@ -2,6 +2,7 @@
 import React from 'react';
 import './ProductDetails.css';
 import Rating from 'react-rating-stars-component';
+import PriceHistoryGraph from '../PriceHistoryComponent/PriceHistoryGraph';
 
 const ProductDetails = ({ shoe }) => {
   // Use the shoe prop instead of shoesData array
@@ -66,6 +67,9 @@ const ProductDetails = ({ shoe }) => {
         <p className='shoe-description'>
           {shoe.description}
         </p>
+        <div>
+          {/* <PriceHistoryGraph/> */}
+        </div>
       </div>
     </div>
   );
