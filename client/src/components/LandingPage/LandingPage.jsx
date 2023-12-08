@@ -252,9 +252,6 @@
 //     </div>
 //   );
 // };
-
-// export default LandingPage;
-
 import React, { useState } from 'react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick.css';
@@ -470,19 +467,19 @@ const LandingPage = () => {
           />
         </div>
         <div className="col-md-8">
-          <h3>The birth of American Sneaker</h3>
-          <p>Founded in 1906 in Boston, Massachusetts, New Balance began as the "New Balance Arch Support Company," specializing in arch supports and orthopedic footwear. The company pivoted to athletic shoes in the 1960s with the introduction of the "Trackster," the first running shoe with a ripple sole. This marked a turning point, establishing New Balance as a pioneer in the running shoe industry. Throughout the decades, the brand's focus on quality craftsmanship, support, and unique design, notably the iconic "N" logo, propelled it to international recognition. New Balance's commitment to domestic manufacturing, technological innovations, and collaborations has solidified its status as a global leader in athletic footwear.</p>
-          <p>
+          <h3 className='res'>The birth of American Sneaker</h3>
+          <p className='res'>Founded in 1906 in Boston, Massachusetts, New Balance began as the "New Balance Arch Support Company," specializing in arch supports and orthopedic footwear. The company pivoted to athletic shoes in the 1960s with the introduction of the "Trackster," the first running shoe with a ripple sole. This marked a turning point, establishing New Balance as a pioneer in the running shoe industry. Throughout the decades, the brand's focus on quality craftsmanship, support, and unique design, notably the iconic "N" logo, propelled it to international recognition. New Balance's commitment to domestic manufacturing, technological innovations, and collaborations has solidified its status as a global leader in athletic footwear.</p>
+          <p className='res'>
             Despite facing competition, New Balance's dedication to quality, comfort, and innovation ensures its continued prominence in the athletic footwear.</p>
-          <button className='shop-now-button'>Shop Now</button>
+          <button className='shop-now-button res'>Shop Now</button>
         </div>
       </div>
       <div className="row sneaker-article" >
         <div className="col-md-8">
-          <h3>Tech in Sneaker culture</h3>
-          <p>Nike stands at the forefront of tech-infused footwear, integrating innovations like self-lacing capabilities with Nike Adapt technology. Advanced materials such as Flyknit ensure a lightweight and adaptive fit. The brand's commitment to sustainability is evident through the use of recycled materials and eco-friendly manufacturing. Nike consistently pushes the boundaries, aiming to create sneakers that not only meet athletic demands but also seamlessly integrate technology, offering a glimpse into the future of connected and smart footwear.</p>
-          <p>Advanced materials, such as Flyknit, ensure a lightweight and adaptive fit, showcasing the brand's commitment to cutting-edge design and technology.</p>
-          <button className='shop-now-button'>Shop Now</button>
+          <h3 className='res'>Tech in Sneaker culture</h3>
+          <p className='res'>Nike stands at the forefront of tech-infused footwear, integrating innovations like self-lacing capabilities with Nike Adapt technology. Advanced materials such as Flyknit ensure a lightweight and adaptive fit. The brand's commitment to sustainability is evident through the use of recycled materials and eco-friendly manufacturing. Nike consistently pushes the boundaries, aiming to create sneakers that not only meet athletic demands but also seamlessly integrate technology, offering a glimpse into the future of connected and smart footwear.</p>
+          <p className='res'>Advanced materials, such as Flyknit, ensure a lightweight and adaptive fit, showcasing the brand's commitment to cutting-edge design and technology.</p>
+          <button className='shop-now-button res'>Shop Now</button>
         </div>
         <div className="col-md-4">
           <img
@@ -501,9 +498,9 @@ const LandingPage = () => {
           />
         </div>
         <div className="col-md-8">
-          <h3>Age of Athleisure</h3>
-          <p>Adidas, a global giant in sports apparel and footwear, has a profound impact on the athletic world. Founded in 1949 by Adolf Dassler, the brand's commitment to sports excellence is embedded in its DNA. Adidas sponsors top athletes, teams, and major sporting events, solidifying its presence across diverse disciplines, from soccer to basketball and running. Renowned for its iconic three-stripe logo, Adidas continually innovates, introducing performance-enhancing technologies like Boost cushioning. Beyond professional sports, Adidas fosters a culture of inclusivity and encourages active lifestyles, making its mark as a symbol of sportswear excellence globally, transcending boundaries and resonating with athletes of all levels.</p>
-          <button className='shop-now-button'>Shop Now</button>
+          <h3 className='res'>Age of Athleisure</h3>
+          <p className='res'>Adidas, a global giant in sports apparel and footwear, has a profound impact on the athletic world. Founded in 1949 by Adolf Dassler, the brand's commitment to sports excellence is embedded in its DNA. Adidas sponsors top athletes, teams, and major sporting events, solidifying its presence across diverse disciplines, from soccer to basketball and running. Renowned for its iconic three-stripe logo, Adidas continually innovates, introducing performance-enhancing technologies like Boost cushioning. Beyond professional sports, Adidas fosters a culture of inclusivity and encourages active lifestyles, making its mark as a symbol of sportswear excellence globally, transcending boundaries and resonating with athletes of all levels.</p>
+          <button className='shop-now-button res'>Shop Now</button>
         </div>
       </div>
       <Footer />

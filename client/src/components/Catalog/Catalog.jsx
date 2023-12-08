@@ -5,9 +5,9 @@ import './Catalog.css';
 
 const Catalog = ({ shoesData }) => {
   const columnsPerRow = {
-    lg: 4, // Number of columns per row for large screens
-    md: 6, // Number of columns per row for medium screens
-    sm: 12, // Number of columns per row for small screens (1 card per row)
+    lg: 4, 
+    md: 6, 
+    sm: 12, 
   };
 
   return (
@@ -29,7 +29,7 @@ const Catalog = ({ shoesData }) => {
                 <div className="card border-0">
                   <img
                     src={shoe.assets.img[0]}
-                    className="card-img-top img-fluid"
+                    className="card-img-top img-fluid ${columnsPerRow.sm === 12 ? 'mobile-image' : ''}"
                     alt={`Card ${rowIndex * columnsPerRow.lg + columnIndex + 1}`}
                   />
                   <div className="card-body">

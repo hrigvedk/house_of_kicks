@@ -25,7 +25,7 @@ const ProductDetails = ({ shoe }) => {
         <div className="mt-3">
           <label htmlFor="shoe-sizes" className="form-label">Select Size:</label>
           <select id="shoe-sizes" className="form-select">
-            {shoeSizes.map((size, index) => (
+            {shoe.availableSizes.map((size, index) => (
               <option key={index} value={size}>{size}</option>
             ))}
           </select>
