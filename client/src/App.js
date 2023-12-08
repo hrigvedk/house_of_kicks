@@ -13,6 +13,7 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 import NotFound from './components/NotFound/NotFound';
 import LandingPage from './components/LandingPage/LandingPage';
 import Cart from './components/Cart/Cart';
+import Portfolio from './components/Portfolio/Portfolio';
 
 const App = () => {
 
@@ -24,12 +25,10 @@ const App = () => {
         <Route path ={routes.demo} element = {<Demo/>}/>
         <Route path={routes.LANDINGPAGE} element={<ProtectedRoute element={<LandingPage />} />} />
         <Route path={routes.base} element={<ProtectedRoute element={<LoginSignUpCard />} route={'/auth'} />} />
-        {/* <Route path={'/products/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/products'} />} /> */}
-        
-
         <Route path={'/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/product'} />} />
         <Route path={'*'} element={<ProtectedRoute element={<NotFound />} route={'*'} />} /> 
         <Route path={'/cart'} element={<ProtectedRoute element={<Cart />} route={'/cart'} />} /> 
+        <Route path={'/portfolio'} element={<ProtectedRoute element={<Portfolio />} route={'/portfolio'} />} /> 
       </Routes>
     </Router>
   );
