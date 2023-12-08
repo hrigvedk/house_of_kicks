@@ -14,6 +14,8 @@ import NotFound from './components/NotFound/NotFound';
 import LandingPage from './components/LandingPage/LandingPage';
 import Cart from './components/Cart/Cart';
 import Portfolio from './components/Portfolio/Portfolio';
+import Paypal from './components/PayPal/PayPal';
+import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
 
 const App = () => {
 
@@ -28,7 +30,10 @@ const App = () => {
         <Route path={'/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/product'} />} />
         <Route path={'*'} element={<ProtectedRoute element={<NotFound />} route={'*'} />} /> 
         <Route path={'/cart'} element={<ProtectedRoute element={<Cart />} route={'/cart'} />} /> 
-        <Route path={'/portfolio'} element={<ProtectedRoute element={<Portfolio />} route={'/portfolio'} />} /> 
+        <Route path={'/portfolio'} element={<ProtectedRoute element={<Portfolio />} route={'/portfolio'} />} />
+        {/* <Route path="/order-confirmation" element={<OrderConfirmation />} /> */}
+        <Route path={'/payment'} element={<ProtectedRoute element={<OrderConfirmation />} route={'/payment'} />} /> 
+
       </Routes>
     </Router>
   );
