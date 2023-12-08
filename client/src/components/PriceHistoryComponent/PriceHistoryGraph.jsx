@@ -1,94 +1,63 @@
-import React, { useEffect, useRef } from 'react';
-import Chart from 'chart.js/auto'; // Import Chart.js
-import { priceHistory } from './PriceHistoryData';
+// import React from 'react';
+// import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
-const PriceHistoryGraph = () => {
+// const PriceHistoryGraph = ({ data }) => {
+//   return (
+//     <LineChart width={600} height={300} data={data}>
+//       <CartesianGrid strokeDasharray="3 3" />
+//       <XAxis dataKey="date" />
+//       <YAxis />
+//       <Tooltip />
+//       <Legend />
+//       <Line type="monotone" dataKey="price" stroke="#CF0A2C" activeDot={{ r: 8 }} />
+//     </LineChart>
+//   );
+// };
 
-    const data = [
-        {
-          date: '2023-12-07',
-          price: 180,
-        },
-        {
-          date: '2023-12-09',
-          price: 200,
-        },
-        {
-          date: '2023-12-11',
-          price: 170,
-        },
-        {
-            date: '2023-12-13',
-            price: 160,
-          },
-          {
-            date: '2023-12-15',
-            price: 190,
-          },    {
-            date: '2023-12-17',
-            price: 230,
-          },
-          {
-            date: '2023-12-19',
-            price: 150,
-          },
-          {
-            date: '2023-12-21',
-            price: 250,
-          },
-        // Add more data as needed
-      ];
-  const chartContainer = useRef(null);
+// export default PriceHistoryGraph;
 
-  useEffect(() => {
-    if (data.length > 0 && chartContainer.current) {
-      const dates = data.map((item) => item.date);
-      const prices = data.map((item) => item.price);
+// import React from 'react';
+// import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend } from 'recharts';
 
-      const ctx = chartContainer.current.getContext('2d');
+// const PriceHistoryGraph = ({ data }) => {
+//   return (
+//     <LineChart width={600} height={300} data={data}>
+//       <CartesianGrid strokeDasharray="3 3" />
+//       <XAxis dataKey="date" label={{ value: 'Date', position: 'insideBottom', offset: -4 }} />
+//       {/* Add X-axis label with value, position, and offset */}
+//       <YAxis label={{ value: 'Price in USD', angle: -90, position: 'insideLeft' }} />
+//       {/* Add Y-axis label with value, angle, and position */}
+//       <Tooltip />
+//       {/* <Legend /> */}
+//       <Line type="monotone" dataKey="price" stroke="#CF0A2C" activeDot={{ r: 8 }} />
+//     </LineChart>
+//   );
+// };
 
-      new Chart(ctx, {
-        type: 'line',
-        data: {
-          labels: dates,
-          datasets: [{
-            label: 'Price History',
-            data: prices,
-            borderColor: 'rgb(75, 192, 192)',
-            backgroundColor: 'rgba(75, 192, 192, 0.2)',
-            tension: 0.4,
-          }],
-        },
-        options: {
-          responsive: true,
-          scales: {
-            x: {
-              type: 'time',
-              time: {
-                parser: 'YYYY-MM-DD', // Specify your date format here
-                unit: 'day',
-                displayFormats: {
-                  day: 'MMM DD',
-                },
-              },
-              title: {
-                display: true,
-                text: 'Date',
-              },
-            },
-            y: {
-              title: {
-                display: true,
-                text: 'Price',
-              },
-            },
-          },
-        },
-      });
-    }
-  }, [data]);
+// export default PriceHistoryGraph;
 
-  return <canvas ref={chartContainer} />;
+import React from 'react';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip } from 'recharts';
+
+const PriceHistoryGraph = ({ data }) => {
+  return (
+    <LineChart width={600} height={300} data={data}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis
+        dataKey="date"
+        label={{
+          value: 'Date',
+          position: 'insideBottom',
+          offset: -4, // Adjust the offset to increase the distance from the axis
+          style: { fontSize: '14px', fontWeight: 'bold', fill: '#333' } // Add styles for the label
+        }}
+      />
+      <YAxis label={{ value: 'Price in USD', angle: -90, position: 'insideLeft' , style: { fontSize: '14px', fontWeight: 'bold', fill: '#333' } }}  />
+      <Tooltip />
+      <Line type="monotone" dataKey="price" stroke="#CF0A2C" activeDot={{ r: 8 }} />
+    </LineChart>
+  );
 };
 
 export default PriceHistoryGraph;
+
