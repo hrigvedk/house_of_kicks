@@ -6,7 +6,8 @@ const routes = {
     UPDATE_USER:'/updateProfile',
     PRODUCTS: '/products/*',
     PRODUCT: '/product/:modelName',
-    DOESNOTEXIST: '*'
+    DOESNOTEXIST: '*',
+    CART: '/cart'
   };
   
   export default routes;
