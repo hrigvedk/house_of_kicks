@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from "react";
+import '../PayPal/PayPal.css'
 
 export default function Paypal({ price }) {
   const paypal = useRef();
@@ -32,7 +33,7 @@ export default function Paypal({ price }) {
   }, []);
 
   return (
-    <div style={{ display: "flex", justifyContent: "center" }}>
+    <div style={{ display: "flex", justifyContent: "center"}}>
       <div ref={paypal}></div>
     </div>
   );
