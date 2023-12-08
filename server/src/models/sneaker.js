@@ -37,13 +37,29 @@ const sneakerSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    marketPrice: {
+        type: String
+    },
     price: {
         type: String,
         required: true
     },
-    priceHistory: {
-        type: [String]
-    }
+    purchaseDate: {
+        type: String,
+        default: '12-09-2023'
+    },
+    priceHistory: [
+        {
+            date: {
+                type: String,
+                required: true,
+            },
+            price: {
+                type: String,
+                required: true,
+            },
+        },
+    ],
 }, {
     timestamps: true
 })

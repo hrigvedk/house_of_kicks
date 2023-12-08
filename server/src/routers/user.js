@@ -206,9 +206,9 @@ router.delete('/user/cart/remove/:sneakerId', async (req, res) => {
   
 
 // endpoint for getting the sneakers in a user's cart
-router.get('/user/cart', async (req, res) => {
+router.get('/user/:userId/cart', async (req, res) => {
     try {
-      const { userId } = req.body; 
+      const { userId } = req.params;
   
       const user = await User.findById(userId).populate('cart.sneaker');
   
@@ -221,12 +221,13 @@ router.get('/user/cart', async (req, res) => {
         quantity: item.quantity,
       }));
   
-      res.send(cartItems); 
+      res.send(cartItems);
     } catch (error) {
       console.error(error);
       res.status(500).send({ error: 'Server Error' });
     }
   });
+  
   
   
 
