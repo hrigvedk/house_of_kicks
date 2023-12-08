@@ -1,21 +1,19 @@
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&display=swap');
 
-/* LandingPage.css */
 .carousel-slide {
-    overflow: hidden; /* Ensure that the blurred part is hidden */
+    overflow: hidden;
   }
   
   .carousel-image {
     width: 100%;
-    transition: filter 0.5s ease; /* Add a smooth transition effect */
+    transition: filter 0.5s ease; 
     padding: 15px;
   }
   
   .carousel-image.blur {
-    filter: blur(3px); /* Adjust the blur value as needed */
+    filter: blur(3px); 
   }
   
-  /* LandingPage.css */
 
 .carousel-container {
     position: relative;
@@ -25,8 +23,8 @@
     font-family: 'Montserrat', sans-serif;
     font-size: 15px;
     text-align: left;
-    margin-top: 20px; /* Adjust the margin as needed */
-    margin-left: 20px; /* Adjust the left margin as needed */
+    margin-top: 20px; 
+    margin-left: 20px; 
   }
   
   .sneaker-article {
@@ -44,4 +42,9 @@
     background-color: #cf0a2c;
     width: 20%;
   }
-  
+
+  /* .mobile {
+    height: 100px;
+    width: 100px;
+  }
+   */

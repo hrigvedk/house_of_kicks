@@ -1,99 +1,38 @@
-/* 
-
-*{
-  font-size:large;
-}
-
-.container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-  
-  
-  .profile-card {
-    width: 80%;
-    max-width: 900px;
-    margin-top: 20px;
-    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
-    border-radius: 8px;
-    padding: 20px;
-    background-color: antiquewhite;
-  }
-  
-
-  .header {
-    
-    color: black;
-    text-align: left;
-    
-    margin-left: 400px;
-    margin-top: 100px;
-  }
-  
-
-  .profile-header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 15px;
-  }
-  
-  .profile-title {
-    margin: 0;
-  }
-  
-  .edit-button {
-    background-color: black;
-    color: #fff;
-    border: none;
-    padding: 8px 12px;
-    border-radius: 4px;
-    cursor: pointer;
-  }
-  
-  .edit-button:hover {
-    background-color: darkgray;
-  }
-  
-
-  .profile-details p {
-    margin: 5px 0;
-  }
-   */
-
-   /* Default styles */
-
 * {
   font-size: large;
 }
 
-/* Center the profile card */
+.welcome {
+  font-weight: 400;
+}
+
+.name-header {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
 .container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-/* Style the profile card */
 .profile-card {
   width: 80%;
   max-width: 900px;
-  margin-top: 20px;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  margin-top: 0px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
   border-radius: 8px;
   padding: 20px;
-  background-color: antiquewhite;
+  background-color: #F4F5FB;
 }
 
-/* Style the header */
 .header {
   color: black;
-  text-align: center; /* Align center for mobile */
-  margin-top: 20px; /* Adjust margin for better alignment */
+  text-align: center; 
+  margin-top: 20px; 
 }
 
-/* Profile title and edit button */
 .profile-header {
   display: flex;
   justify-content: space-between;
@@ -118,34 +57,30 @@
   background-color: darkgray;
 }
 
-/* Profile details */
 .profile-details p {
   margin: 5px 0;
 }
 
-/* Responsive styles using media queries */
 @media screen and (max-width: 768px) {
-  /* Adjust styles for tablet */
   .header {
-    margin-top: 50px; /* Example: Adjust margin for better alignment on tablet */
+    margin-top: 50px; 
   }
 
   .container {
-    padding: 0 15px; /* Example: Add padding to container for better spacing on tablet */
+    padding: 0 15px; 
   }
 }
 
 @media screen and (max-width: 576px) {
-  /* Adjust styles for mobile */
   .header {
-    margin-top: 70px; /* Example: Adjust margin for better alignment on mobile */
+    margin-top: 70px; 
   }
 
   .container {
-    padding: 0 10px; /* Example: Add more padding for better spacing on mobile */
+    padding: 0 10px; 
   }
 
   .profile-card {
-    width: 95%; /* Example: Adjust card width for better fit on mobile */
+    width: 95%; 
   }
 }

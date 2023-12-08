@@ -38,7 +38,7 @@ const Login = () => {
       localStorage.setItem('phone',phone)
       localStorage.setItem('password',password)
 
-      window.location.replace(routes.USER_PROFILE);
+      window.location.replace(routes.LANDINGPAGE);
     } catch (error) {
       setError(error.message);
     } finally {
