@@ -5,7 +5,14 @@ import PriceHistoryGraph from '../PriceHistoryComponent/PriceHistoryGraph';
 
 const ProductDetails = ({ shoe }) => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
+  const [selectedSize, setSelectedSize] = useState('');
 
+  const handleSizeClick = (size) => {
+    if (!shoe.availableSizes.includes(size)) {
+      setSelectedSize(size);
+      console.log(selectedSize);
+    }
+  };
 
   const shoeId = shoe._id;
   const userId = localStorage.getItem('_id');
@@ -18,7 +25,6 @@ const ProductDetails = ({ shoe }) => {
     { date: '2023-12-17', price: 150 },
     { date: '2023-12-19', price: 90 },
     { date: '2023-12-21', price: 250 },
-    // Add more data as needed
   ];
 
   if (!shoe) {
@@ -57,7 +63,7 @@ const ProductDetails = ({ shoe }) => {
   const renderShoeSizes = () => {
     const shoeSizes = [4, 4.5, 5, 5.5, 6, 6.5, 7, 7.5, 8, 8.5, 9, 9.5, 10, 10.5, 11, 11.5, 12, 12.5, 13, 13.5, 14];
 
-  
+
 
     const isMobileView = window.innerWidth < 768;
 
@@ -75,17 +81,35 @@ const ProductDetails = ({ shoe }) => {
     } else {
       return (
         <div className="row mt-3 shoe-sizes-container">
-          {shoeSizes.map((size, index) => {
-            const isAvailable = !shoe.availableSizes.includes(size);
-            return (
-              <div key={index} className={`col-md-4 shoe-size-box-container`}>
-                <div className={`shoe-size-box ${isAvailable ? 'sold-out' : ''}`}>
-                  {size}
-                </div>
-              </div>
-            );
-          })}
-        </div>
+      {shoeSizes.map((size, index) => {
+        const isAvailable = !shoe.availableSizes.includes(size);
+        const isSelected = selectedSize === size;
+
+        const boxClassName = `col-md-4 shoe-size-box-container`;
+        const sizeBoxClassName = `shoe-size-box ${isAvailable ? 'sold-out' : ''} ${isSelected ? 'selected' : ''}`;
+
+        const handlePointerClick = () => {
+          if (isAvailable) return; 
+          setSelectedSize(size); 
+        };
+
+        return (
+          <div key={index} className={boxClassName}>
+            <div
+              className={sizeBoxClassName}
+              onClick={handlePointerClick}
+              style={{
+                cursor: isAvailable ? 'not-allowed' : 'pointer',
+                backgroundColor: isSelected ? '#CF0A2C' : '',
+                color: isSelected ? 'white' : 'black',
+              }}
+            >
+              {size}
+            </div>
+          </div>
+        );
+      })}
+    </div>
       );
     }
   };
@@ -114,9 +138,9 @@ const ProductDetails = ({ shoe }) => {
           </div>
         </div>
         <p className="shoe-description">{shoe.description}</p>
- 
 
-        <PriceHistoryGraph  data = {data}/>
+
+        <PriceHistoryGraph data={data} />
 
         {isAddedToCart && (
           <div className="popup">
