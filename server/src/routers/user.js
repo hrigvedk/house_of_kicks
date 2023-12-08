@@ -164,7 +164,7 @@ router.post('/user/cart/add/:sneakerId', async (req, res) => {
         return res.status(404).send({ error: 'Sneaker not found' });
       }
   
-      user.cart.push({ sneaker: sneaker._id, quantity: quantity });
+      user.cart.push({ sneaker: sneaker._id });
   
       await user.save();
   

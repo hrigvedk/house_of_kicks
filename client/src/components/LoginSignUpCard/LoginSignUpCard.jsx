@@ -1,7 +1,7 @@
 // 
 import React, { useState } from 'react';
 import { FaShoePrints } from 'react-icons/fa';
-import SignUp from '../SignUp/SignUp';
+import SignUp from '../../components/SignUp/SignUp';
 import Login from '../Login/Login';
 import "./LoginSignUpCardStyles/loginSignUpCardStyles.css";
 

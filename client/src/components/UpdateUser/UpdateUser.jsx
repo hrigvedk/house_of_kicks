@@ -3,6 +3,7 @@ import { updateUserProfile } from '../../api/api';
 import routes from '../../Routes';
 import { FaEye, FaEyeSlash } from 'react-icons/fa';
 import './UpdateUserStyles/updateUserStyles.css';
+import Navigation from '../Navigation/Navigation';
 
 
 
@@ -136,9 +137,7 @@ function UpdateUser() {
 
   return (
     <div>
-      {/* <div className="header">
-        <h1>Welcome {localStorage.getItem('firstName')}!</h1>
-      </div> */}
+      <Navigation />
 
       <div className="container-update">
         <div className="profile-card-update">
@@ -183,26 +182,6 @@ function UpdateUser() {
                 disabled
               />
             </div>
-                {/* <div className="form-group">
-      <label htmlFor="email">
-        <b>Email</b>
-      </label>
-        <input
-          type="email"
-          className="form-control"
-          id="email"
-          name="email"
-          value={formData.email}
-          onChange={handleInputChange}
-          disabled
-        />
-      <div className="tooltip">
-        <span className="tooltiptext">Disabled field</span>
-      </div>
-    </div> */}
-
-
-
             <div className="form-group">
               <label htmlFor="password"> <b>Password</b></label>
               <div className='password-row'>

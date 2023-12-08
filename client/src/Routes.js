@@ -7,6 +7,7 @@ const routes = {
     PRODUCTS: '/products/*',
     PRODUCT: '/product/:modelName',
     DOESNOTEXIST: '*',
+    CART: '/cart'
   };
   
   export default routes;
