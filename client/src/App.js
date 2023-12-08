@@ -12,6 +12,7 @@ import ProductCatlog from './components/ProductCatalog/ProductCatalog'
 import ProductDetails from './components/ProductDetails/ProductDetails';
 import NotFound from './components/NotFound/NotFound';
 import LandingPage from './components/LandingPage/LandingPage';
+import Cart from './components/Cart/Cart';
 
 const App = () => {
 
@@ -27,6 +28,7 @@ const App = () => {
 
         <Route path={'/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/product'} />} />
         <Route path={'*'} element={<ProtectedRoute element={<NotFound />} route={'*'} />} /> 
+        <Route path={'/cart'} element={<ProtectedRoute element={<Cart />} route={'/cart'} />} /> 
       </Routes>
     </Router>
   );
