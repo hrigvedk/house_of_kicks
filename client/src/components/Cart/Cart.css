@@ -38,3 +38,19 @@
     margin: 5px;
   }
   
+  /* Add a media query for mobile devices */
+@media screen and (max-width: 767px) {
+  .cart-container {
+    width: 80%;
+  }
+
+  .shop-now-button,
+  .delete-button {
+      width: 50%;
+  }
+
+      /* Hide the image for mobile view */
+  .cart-container img {
+        display: none;
+  }
+}

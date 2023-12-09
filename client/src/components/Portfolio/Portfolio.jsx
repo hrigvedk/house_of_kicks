@@ -353,30 +353,20 @@ const Portfolio = () => {
                             <h6>
                                 Total Profit / Loss Amount :
                             </h6>
+                            <h3  style={{ color: totalProfitLossAmount < 0 ? 'red' : 'green' }}>{totalProfitLossAmount < 0 ? '-$' : '$'}{Math.abs(totalProfitLossAmount).toFixed(2)}</h3>
                         </div>
                         <div className='col-md-4 text-center'>
                             <h6>
                                 Total Profit / Loss % :
                             </h6>
+                            <h3  style={{ color: totalProfitLossPercentage < 0 ? 'red' : 'green' }}>
+                                {totalProfitLossPercentage}%
+                            </h3>
                         </div>
                         <div className='col-md-4 text-center'>
                             <h6>
                                 Total Invested :
                             </h6>
-                        </div>
-                    </div>
-                    <div className='row'>
-                        <div className='col-md-4 text-center' style={{ color: totalProfitLossAmount < 0 ? 'red' : 'green' }}>
-                            <h3>
-                                <h3>{totalProfitLossAmount < 0 ? '-$' : '$'}{Math.abs(totalProfitLossAmount).toFixed(2)}</h3>
-                            </h3>
-                        </div>
-                        <div className='col-md-4 text-center' style={{ color: totalProfitLossPercentage < 0 ? 'red' : 'green' }}>
-                            <h3>
-                                {totalProfitLossPercentage}%
-                            </h3>
-                        </div>
-                        <div className='col-md-4 text-center'>
                             <h3>
                                 ${totalInvested.toFixed(2)}
                             </h3>

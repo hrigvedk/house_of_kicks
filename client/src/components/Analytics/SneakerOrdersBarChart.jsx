@@ -1,14 +1,16 @@
 import React from 'react';
-import { RadialBarChart, RadialBar, Legend, Tooltip } from 'recharts';
+import { BarChart, XAxis, YAxis, Tooltip, CartesianGrid, Bar } from 'recharts';
 
-const SneakerOrdersRadialBarChart = ({ data }) => {
+const SneakerOrdersBarChart = ({ data }) => {
   return (
-    <RadialBarChart width={400} height={300} innerRadius="20%" outerRadius="80%" data={data}>
-      <RadialBar dataKey="orders" fill="#8884d8" minAngle={15} label={{ position: 'insideStart', fill: '#fff' }} />
+    <BarChart width={400} height={300} data={data}>
+      <CartesianGrid strokeDasharray="3 3" />
+      <XAxis dataKey="sneaker" />
+      <YAxis />
       <Tooltip />
-      <Legend />
-    </RadialBarChart>
+      <Bar dataKey="orders" fill="#8884d8" />
+    </BarChart>
   );
 };
 
-export default SneakerOrdersRadialBarChart;
+export default SneakerOrdersBarChart
