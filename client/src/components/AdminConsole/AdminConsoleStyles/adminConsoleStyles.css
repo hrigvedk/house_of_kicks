@@ -16,7 +16,7 @@
   h5{
     text-align: center;
   }
-  .cards-container {
+  .admin-cards-container {
     display: flex;
     justify-content: space-between;
     margin-bottom: 20px;
