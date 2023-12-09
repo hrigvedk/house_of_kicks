@@ -13,13 +13,10 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 import NotFound from './components/NotFound/NotFound';
 import LandingPage from './components/LandingPage/LandingPage';
 import Cart from './components/Cart/Cart';
-<<<<<<< HEAD
 import AdminConsole from './components/AdminConsole/AdminConsole';
-=======
 import Portfolio from './components/Portfolio/Portfolio';
 import Paypal from './components/PayPal/PayPal';
 import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
->>>>>>> a94827c30af5695a3ed09545a8de57f657341157
 
 const App = () => {
 

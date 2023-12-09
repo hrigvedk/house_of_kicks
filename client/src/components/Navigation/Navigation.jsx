@@ -12,6 +12,7 @@ const Navigation = ({ onSearchChange }) => {
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);
   };
+  
 
   const handleLogout = async () => {
     const isLogOut = await logout(); 

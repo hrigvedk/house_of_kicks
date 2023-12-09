@@ -418,9 +418,9 @@ const LandingPage = () => {
   ];
 
   const carouselImages = [
-    'https://drive.google.com/uc?id=1Q2pO5LjHuM7srQ4Q50SvVWczgd532GzL',
-    'https://drive.google.com/uc?id=1RvJGcJcqBmB8zNkJ8-IlLsDcp2ieJ-Su',
-    'https://drive.google.com/uc?id=1fGIveY_OM2CqPfle-ItGlaQhqoNeXcWD',
+    'https://drive.google.com/uc?id=120ep1ssoKLO3Z3t5UyzrT6jsPiB-AQLQ',
+    'https://drive.google.com/uc?id=17PqL75Xh2-PK6OowZ0jH7bT-lsR0Egvh',
+    'https://drive.google.com/uc?id=1F_3qyPR2Rm4MyXHQb2yEQSJEcdMOIQ3r',
   ];
 
   const settings = {

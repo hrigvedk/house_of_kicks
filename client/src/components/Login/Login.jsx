@@ -70,7 +70,8 @@ const Login = () => {
       // }
 
       const response = await login(credentials, 5000);
-      const { _id, email, firstName, lastName, phone, password, token } = response.user;
+      const { _id, email, firstName, lastName, phone, password } = response.user;
+      const token = response.token;
       // If validations pass, proceed with login
       const adminEmail = ADMIN_CREDENTIALS.EMAIL; 
       const adminPassword = ADMIN_CREDENTIALS.PASSWORD; 

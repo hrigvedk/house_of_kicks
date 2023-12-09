@@ -22,14 +22,22 @@
     margin-bottom: 20px;
     /* Add styles for the container of the cards */
   }
+
+  .top-row {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .dim {
+    height: 2.5rem;
+  }
   
-  .card {
+  .admin-card {
     width: 30%;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     background-color: #ffffff;
-    /* Add other styles for the card */
   }
   
   /* AdminPage.css */
