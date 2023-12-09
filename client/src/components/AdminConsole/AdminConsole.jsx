@@ -5,9 +5,15 @@ import TopUsersComposedChart from '../Analytics/TopUsersComposedChart';
 import TopPreferredSneakersRadarChart from '../Analytics/TopPreferredSneakersScatterChart ';
 import SneakerOrdersBarChart from '../Analytics/SneakerOrdersBarChart';
 import SneakerOrdersRadialBarChart from '../Analytics/SneakerOrdersBarChart';
-import { deleteUser } from '../../api/api';
+import { deleteUser, logout } from '../../api/api';
+import routes from '../../Routes';
+
+
 const AdminPage = () => {
   const [users, setUsers] = useState([]);
+  const token = localStorage.getItem('token');
+
+  console.log(token);
 
     const sneakerSalesData = [
     { name: 'Nike', salesPercentage: '25%' },
@@ -135,21 +141,38 @@ const CustomLegend = ({ data }) => {
       // Handle errors related to user deletion
     }
   };
+
+  const handleLogout = async () => {
+    const isLogOut = await logout(); 
+    if (isLogOut === true) {
+      localStorage.clear();
+      window.location.href = routes.base;
+    }
+  };
+
   return (
     <div className="admin-page">
+      <div className='top-row'>
       <h1>Admin Console</h1>
-
+      <button
+            className="logout-button dim"
+            style={{ backgroundColor: '#050D14', color: 'white', border: '1px solid white' }}
+            onClick={ handleLogout}
+          >
+            Logout
+          </button>
+      </div>
       <div className="cards-container">
         {/* Placeholder for three cards */}
-        <div className="card">
+        <div className="admin-card">
           <h5>Our Top Sale Contributors</h5>
           <SneakerSalesPieChart data= {sneakerSalesData}/>
         </div>
-        <div className="card">
+        <div className="admin-card">
         <h5>Top Profit makers this week</h5>
           <TopUsersComposedChart data ={topUsersData} />
         </div>
-        <div className="card">
+        <div className="admin-card">
           {/* <TopPreferredSneakersRadarChart data ={topPreferredSneakersData} /> */}
           {/* <SneakerOrdersBarChart data = {sneakerOrdersData} /> */}
           <h5>Top selling Sneakers of the Month</h5>
