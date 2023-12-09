@@ -6,6 +6,7 @@ const routes = {
     UPDATE_USER:'/updateProfile',
     PRODUCTS: '/products/*',
     PRODUCT: '/product/:modelName',
+    ADMIN:'/admin',
     DOESNOTEXIST: '*',
     CART: '/cart',
     demo :'/demo'

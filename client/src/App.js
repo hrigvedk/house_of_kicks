@@ -13,9 +13,13 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 import NotFound from './components/NotFound/NotFound';
 import LandingPage from './components/LandingPage/LandingPage';
 import Cart from './components/Cart/Cart';
+<<<<<<< HEAD
+import AdminConsole from './components/AdminConsole/AdminConsole';
+=======
 import Portfolio from './components/Portfolio/Portfolio';
 import Paypal from './components/PayPal/PayPal';
 import OrderConfirmation from './components/OrderConfirmation/OrderConfirmation';
+>>>>>>> a94827c30af5695a3ed09545a8de57f657341157
 
 const App = () => {
 
@@ -25,6 +29,7 @@ const App = () => {
         <Route path ={routes.USER_PROFILE} element = {<Profile/>}/>
         <Route path ={routes.UPDATE_USER} element = {<UpdateUser/>}/>
         <Route path ={routes.demo} element = {<Demo/>}/>
+        <Route path ={routes.ADMIN} element = {<AdminConsole/>}/>
         <Route path={routes.LANDINGPAGE} element={<ProtectedRoute element={<LandingPage />} />} />
         <Route path={routes.base} element={<ProtectedRoute element={<LoginSignUpCard />} route={'/auth'} />} />
         <Route path={'/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/product'} />} />
