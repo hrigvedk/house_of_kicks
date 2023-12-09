@@ -128,7 +128,7 @@ const ProductDetails = ({ shoe }) => {
       </div>
       <div className="col-md-5 shoe-details">
         <span>{`${shoe.gender}'s Shoes`}</span>
-        <h4>{shoe.modelName}</h4>
+        <h4 className='shoetit'>{shoe.modelName}</h4>
         <span className="shoe-price">${shoe.price}</span>
         <Rating
           count={5}

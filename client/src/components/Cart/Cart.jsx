@@ -11,7 +11,6 @@ const Cart = () => {
     const [isDeleting, setIsDeleting] = useState(false);
     const [checkout, setCheckOut] = useState(false);
     const userId = localStorage.getItem('_id');
-    console.log(userId);
 
     const navigate = useNavigate();
 
@@ -51,7 +50,6 @@ const Cart = () => {
     }, [userId]);
 
     const handleDelete = async (sneakerId) => {
-        console.log(sneakerId);
         setIsDeleting(true);
         try {
             const response = await fetch(`http://house-of-kicks-backend.us-east-1.elasticbeanstalk.com/user/cart/remove/${sneakerId}`, {
@@ -164,7 +162,6 @@ export default Cart;
 //     const [totalPrice, setTotalPrice] = useState(0);
 //     const [isDeleting, setIsDeleting] = useState(false);
 //     const userId = localStorage.getItem('_id');
-//     console.log(userId);
 
 //     const navigate = useNavigate();
 

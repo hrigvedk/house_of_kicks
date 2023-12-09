@@ -13,9 +13,8 @@ const AdminPage = () => {
   const [users, setUsers] = useState([]);
   const token = localStorage.getItem('token');
 
-  console.log(token);
 
-    const sneakerSalesData = [
+  const sneakerSalesData = [
     { name: 'Nike', salesPercentage: '25%' },
     { name: 'Adidas', salesPercentage: '35%' },
     { name: 'New Balance', salesPercentage: '40%' },
@@ -38,19 +37,9 @@ const AdminPage = () => {
       orders: 15,
       totalProfit: 1900,
     },
-    // Add more users as needed...
   ];
 
 
-  // const attributes = Object.keys(topPreferredSneakersData[0]).filter(key => key !== 'sneaker');
-
-  // const transformedData = attributes.map(attribute => ({
-  //   attribute,
-  //   ...topPreferredSneakersData.reduce((accumulator, currentValue) => {
-  //     accumulator[currentValue.sneaker] = currentValue[attribute];
-  //     return accumulator;
-  //   }, {}),
-  // }));
   const topPreferredSneakersData = [
     {
       sneaker: 'Nike Air Max',
@@ -76,60 +65,47 @@ const AdminPage = () => {
       price: 6,
       popularity: 8,
     },
-    // Add more top preferred sneakers as needed...
   ];
 
   const sneakerOrdersData = [
-    { sneaker: 'Nike Air Max', orders: 150 },
-    { sneaker: 'Adidas UltraBoost', orders: 120 },
-    { sneaker: 'New Balance 990', orders: 90 },
-    { sneaker: 'Jordan 1', orders: 80 },
-    { sneaker: 'Vans Old Skool', orders: 70 },
-    // Add more sneakers as needed...
+    { sneaker: 'Air Max', orders: 150 },
+    { sneaker: 'UltraBoost', orders: 120 },
+    { sneaker: 'NB 990', orders: 90 },
   ];
+
   useEffect(() => {
-    // Fetch users' data
     const fetchData = async () => {
       try {
         const response = await fetch('http://house-of-kicks-backend.us-east-1.elasticbeanstalk.com/users');
         const data = await response.json();
-        console.log("users", data)
-        setUsers(data);
+        const filteredData = data.filter(user => user.email !== 'admin.a@houseofkicks.com');
+        setUsers(filteredData);
       } catch (error) {
         console.error('Error fetching users:', error);
-        // Handle errors fetching users' data
       }
     };
 
     fetchData();
   }, []);
 
-//   const handleDeleteUser = (userId) => {
-//     // Function to delete user by ID
-//     // Implement your logic for deleting a user here
-//   };
-const CustomLegend = ({ data }) => {
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-      {data.map((item, index) => (
-        <div key={`legend-${index}`} style={{ display: 'flex', alignItems: 'center' }}>
-          <div style={{ width: '10px', height: '10px', backgroundColor: item.fill, marginRight: '5px' }}></div>
-          <span>{item.sneaker}</span>
-        </div>
-      ))}
-    </div>
-  );
-};
+  const CustomLegend = ({ data }) => {
+    return (
+      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+        {data.map((item, index) => (
+          <div key={`legend-${index}`} style={{ display: 'flex', alignItems: 'center' }}>
+            <div style={{ width: '10px', height: '10px', backgroundColor: item.fill, marginRight: '5px' }}></div>
+            <span>{item.sneaker}</span>
+          </div>
+        ))}
+      </div>
+    );
+  };
 
   // Function to handle deleting a user
   const handleDeleteUser = async (userId) => {
     try {
-      // Call the deleteUser function from api.js to delete the user
       const response = await deleteUser(userId);
-      console.log(response.data);
-      // Assuming the response indicates successful deletion, update the users' list after deletion
       if (response) {
-        // Filter out the deleted user from the current users list
         const updatedUsers = users.filter((user) => user._id !== userId);
         setUsers(updatedUsers);
         console.log('User deleted successfully!');
@@ -138,12 +114,11 @@ const CustomLegend = ({ data }) => {
       }
     } catch (error) {
       console.error('Error deleting user:', error.message);
-      // Handle errors related to user deletion
     }
   };
 
   const handleLogout = async () => {
-    const isLogOut = await logout(); 
+    const isLogOut = await logout();
     if (isLogOut === true) {
       localStorage.clear();
       window.location.href = routes.base;
@@ -153,33 +128,32 @@ const CustomLegend = ({ data }) => {
   return (
     <div className="admin-page">
       <div className='top-row'>
-      <h1>Admin Console</h1>
-      <button
-            className="logout-button dim"
-            style={{ backgroundColor: '#050D14', color: 'white', border: '1px solid white' }}
-            onClick={ handleLogout}
-          >
-            Logout
-          </button>
+        <h1>Admin Console</h1>
+        <button
+          className="logout-button dim"
+          style={{ backgroundColor: '#050D14', color: 'white', border: '1px solid white' }}
+          onClick={handleLogout}
+        >
+          Logout
+        </button>
       </div>
       <div className="admin-cards-container">
         {/* Placeholder for three cards */}
         <div className="admin-card">
           <h4>Our Top Sale Contributors</h4>
-          <SneakerSalesPieChart data= {sneakerSalesData}/>
+          <SneakerSalesPieChart data={sneakerSalesData} />
         </div>
         <div className="admin-card">
-        <h4>Top Profit makers this week</h4>
-          <TopUsersComposedChart data ={topUsersData} />
+          <h4>Top Profit makers this week</h4>
+          <TopUsersComposedChart data={topUsersData} />
         </div>
         <div className="admin-card">
-          {/* <TopPreferredSneakersRadarChart data ={topPreferredSneakersData} /> */}
-          {/* <SneakerOrdersBarChart data = {sneakerOrdersData} /> */}
+
           <h4>Top selling Sneakers of the Month</h4>
-          <SneakerOrdersRadialBarChart data = {sneakerOrdersData} />
-       
-            {/* <CustomLegend data ={sneakerOrdersData} /> */}
-  
+
+          <SneakerOrdersBarChart data={sneakerOrdersData} />
+
+
         </div>
       </div>
 
@@ -202,8 +176,8 @@ const CustomLegend = ({ data }) => {
                 <td>{user.email}</td>
                 <td>{user.phone}</td>
                 <td>
-                <button onClick={() => handleDeleteUser(user._id)}>Delete User</button>
-                
+                  <button onClick={() => handleDeleteUser(user._id)}>Delete User</button>
+
                 </td>
               </tr>
             ))}
