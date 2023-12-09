@@ -22,5 +22,15 @@ Following are all the pages that are part of the webiste:
 8. Admin - Admin panel is only accessible to admin and not to other users. Admin can view different statistics related to the sales of sneakers. They can see all the users that are on the platform and also delete them.
 
 ![1](Output/1.png)
+![1](Output/1.png)
+![1](Output/1.png)
+![1](Output/1.png)
+![1](Output/1.png)
+![1](Output/1.png)
+![1](Output/1.png)
+![1](Output/1.png)
+![1](Output/1.png)
+![1](Output/1.png)
+
 
 
