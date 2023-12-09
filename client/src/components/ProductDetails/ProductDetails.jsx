@@ -7,7 +7,11 @@ const ProductDetails = ({ shoe }) => {
   const [isAddedToCart, setIsAddedToCart] = useState(false);
 
 
+ 
+
   const shoeId = shoe._id;
+  const shoePriceHistory = shoe.priceHistory;
+  console.log("shoe data",shoePriceHistory)
   const userId = localStorage.getItem('_id');
   const data = [
     { date: '2023-12-07', price: 180 },
@@ -20,6 +24,9 @@ const ProductDetails = ({ shoe }) => {
     { date: '2023-12-21', price: 250 },
     // Add more data as needed
   ];
+
+  
+
 
   if (!shoe) {
     return <div>Shoe not found</div>;
@@ -116,7 +123,7 @@ const ProductDetails = ({ shoe }) => {
         <p className="shoe-description">{shoe.description}</p>
  
 
-        <PriceHistoryGraph  data = {data}/>
+        <PriceHistoryGraph  data = {shoePriceHistory}/>
 
         {isAddedToCart && (
           <div className="popup">

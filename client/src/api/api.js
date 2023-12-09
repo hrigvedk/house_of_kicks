@@ -85,3 +85,28 @@ export const updateUserProfile = async (formData, token) => {
     throw new Error(`Error updating profile: ${error.message}`);
   }
 };
+
+export const deleteUser = async (userId) => {
+  try {
+    const response = await fetch(`${API_BASE_URL}user/delete`, {
+      method: 'DELETE',
+      headers: {
+        'Content-Type': 'application/json',
+        // Authorization: `Bearer ${token}`,
+      },
+      body: JSON.stringify({
+       userId : userId
+      }),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      throw new Error('Failed to update profile');
+    }
+
+    return data;
+  } catch (error) {
+    throw new Error(`Error updating profile: ${error.message}`);
+  }
+};

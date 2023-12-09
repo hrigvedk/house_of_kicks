@@ -13,6 +13,7 @@ import ProductDetails from './components/ProductDetails/ProductDetails';
 import NotFound from './components/NotFound/NotFound';
 import LandingPage from './components/LandingPage/LandingPage';
 import Cart from './components/Cart/Cart';
+import AdminConsole from './components/AdminConsole/AdminConsole';
 
 const App = () => {
 
@@ -22,6 +23,7 @@ const App = () => {
         <Route path ={routes.USER_PROFILE} element = {<Profile/>}/>
         <Route path ={routes.UPDATE_USER} element = {<UpdateUser/>}/>
         <Route path ={routes.demo} element = {<Demo/>}/>
+        <Route path ={routes.ADMIN} element = {<AdminConsole/>}/>
         <Route path={routes.LANDINGPAGE} element={<ProtectedRoute element={<LandingPage />} />} />
         <Route path={routes.base} element={<ProtectedRoute element={<LoginSignUpCard />} route={'/auth'} />} />
         {/* <Route path={'/products/*'} element={<ProtectedRoute element={<ProductCatlog />} route={'/products'} />} /> */}
