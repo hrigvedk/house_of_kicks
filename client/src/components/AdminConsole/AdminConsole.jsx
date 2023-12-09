@@ -165,17 +165,17 @@ const CustomLegend = ({ data }) => {
       <div className="admin-cards-container">
         {/* Placeholder for three cards */}
         <div className="admin-card">
-          <h5>Our Top Sale Contributors</h5>
+          <h4>Our Top Sale Contributors</h4>
           <SneakerSalesPieChart data= {sneakerSalesData}/>
         </div>
         <div className="admin-card">
-        <h5>Top Profit makers this week</h5>
+        <h4>Top Profit makers this week</h4>
           <TopUsersComposedChart data ={topUsersData} />
         </div>
         <div className="admin-card">
           {/* <TopPreferredSneakersRadarChart data ={topPreferredSneakersData} /> */}
           {/* <SneakerOrdersBarChart data = {sneakerOrdersData} /> */}
-          <h5>Top selling Sneakers of the Month</h5>
+          <h4>Top selling Sneakers of the Month</h4>
           <SneakerOrdersRadialBarChart data = {sneakerOrdersData} />
        
             {/* <CustomLegend data ={sneakerOrdersData} /> */}
