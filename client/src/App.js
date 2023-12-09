@@ -23,7 +23,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path ={routes.USER_PROFILE} element = {<Profile/>}/>
+        <Route path ={routes.USER_PROFILE} element = {<ProtectedRoute element={<Profile/>} route={'/profile'}/>}/>
         <Route path ={routes.UPDATE_USER} element = {<UpdateUser/>}/>
         <Route path ={routes.demo} element = {<Demo/>}/>
         <Route path ={routes.ADMIN} element = {<AdminConsole/>}/>

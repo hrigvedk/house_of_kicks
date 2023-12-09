@@ -79,6 +79,13 @@ const Login = () => {
       // Check if entered credentials match admin credentials
       if (credentials.email === adminEmail && credentials.password === adminPassword) {
         // Redirect to admin page if credentials match
+        localStorage.setItem('_id', _id);
+      localStorage.setItem('email', email);
+      localStorage.setItem('token', token);
+      localStorage.setItem('firstName', firstName);
+      localStorage.setItem('lastName', lastName);
+      localStorage.setItem('phone', phone);
+      localStorage.setItem('password', password); 
         window.location.replace(routes.ADMIN); // Replace with your admin page route
         return;
       }

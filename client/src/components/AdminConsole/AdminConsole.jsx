@@ -162,7 +162,7 @@ const CustomLegend = ({ data }) => {
             Logout
           </button>
       </div>
-      <div className="cards-container">
+      <div className="admin-cards-container">
         {/* Placeholder for three cards */}
         <div className="admin-card">
           <h5>Our Top Sale Contributors</h5>
